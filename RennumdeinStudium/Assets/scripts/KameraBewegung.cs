@@ -1,36 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+
+//Tutorial: https://www.youtube.com/watch?v=MFQhpwc6cKE
 
 public class KameraBewegung : MonoBehaviour {
 
-    public Transform player;
-    private Vector3 distToPlayer;
-    public Vector3 distanceToPlayer;
-    public float CamStrafeFactor = 1;
-    public float CamMoveSmooting = 1;
-    public float MouseXValue = 0;
+    public Transform target;
 
-    // Use this for initialization
-    void Start()
+    public float smoothSpeed = 5.0f;
+    public Vector3 offset = new Vector3(0, 5.0f, 5.0f);
+
+    void FixedUpdate()
     {
+        Vector3 wunschPosition = target.position + offset;
+        Vector3 smoothPosition = Vector3.Lerp(transform.position, wunschPosition, smoothSpeed);
+        transform.position = smoothPosition;
 
-        if (!player) player = GameObject.Find("Cube").transform;
-
+        transform.LookAt(target);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
 
-        distToPlayer = player.position + distanceToPlayer;
-
-        MouseXValue += Input.GetAxis("Mouse X") * CamStrafeFactor;
-        MouseXValue *= 0.98f;
-
-        distToPlayer += new Vector3(MouseXValue, 0, 0);
-
-        transform.position = Vector3.Lerp(transform.position, distToPlayer, 0.15f * CamMoveSmooting);
-
-    }
 }

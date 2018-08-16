@@ -4,75 +4,41 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour {
 
-    float timemoved = 2.0f;
-    GameObject pfad;
+    public float speed = 5.0f;
+    private Vector3 direction;
 
 
-    int vertindex = 0;
-
-    void move(float length)
-    {
-        // Eckpunkte erzeugen
-        Vector3 a = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z) + transform.right * 0.5f;
-
-        // Zweiten Punkt zu a parallel verschieben
-        Vector3 b = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z) - transform.right * 0.5f;
-
-        // Transform-Turtle um ganze Laenge verschieben
-        this.transform.Translate(0, 0, length);
-
-        Vector3 c = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z) + transform.right * 0.5f;
-
-        Vector3 d = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z) - transform.right * 0.5f;
-
-        // Listen-Index um 4 weiterschieben
-        vertindex += 4;
-    }
-
-    void turnHorizontal(float angle_y)
-    {
-        this.transform.Rotate(0, angle_y, 0);
-    }
-
-    void turnVertical(float angle_x)
-    {
-        this.transform.Rotate(angle_x, 0, 0);
-    }
-
-
+    // Use this for initialization
     void Start()
     {
 
-        Update();
+        direction = Vector3.zero;       //Anfangspunkt
+
     }
 
+    // Update is called once per frame
     void Update()
     {
 
-        if ((Time.time - timemoved) > 0.5f)
-        {
-            timemoved = Time.time;
-            move(1.0f);
-        }
-
         if (Input.GetKeyDown(KeyCode.W))
         {
-            turnVertical(-90.0f);
+            direction = Vector3.forward;
         }
-
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            turnHorizontal(-90.0f);
-        }
-
         if (Input.GetKeyDown(KeyCode.S))
         {
-            turnVertical(90.0f);
+            direction = Vector3.back;
         }
-
         if (Input.GetKeyDown(KeyCode.D))
         {
-            turnHorizontal(90.0f);
+            direction = Vector3.right;
         }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            direction = Vector3.left;
+        }
+
+        float move = speed * Time.deltaTime;
+
+        transform.Translate(direction * move);
     }
 }
