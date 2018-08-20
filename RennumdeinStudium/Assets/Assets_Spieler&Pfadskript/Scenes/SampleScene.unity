@@ -283,9 +283,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e57b399bca8e41debf44ff9c873ea82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftPathPrefab: {fileID: 1939271700337932, guid: 7a5b4f5fd26404ecaa8898cb2e37234b,
-    type: 2}
   currentPath: {fileID: 114648156}
+  pathPrefabs:
+  - {fileID: 1939271700337932, guid: 7a5b4f5fd26404ecaa8898cb2e37234b, type: 2}
+  - {fileID: 1001150727157642, guid: 34e56f38562cd4cf1aa1e91a924a1a1f, type: 2}
 --- !u!4 &494548341
 Transform:
   m_ObjectHideFlags: 0
@@ -341,6 +342,16 @@ Prefab:
     - target: {fileID: 1939271700337932, guid: 7a5b4f5fd26404ecaa8898cb2e37234b, type: 2}
       propertyPath: m_Name
       value: MainPath
+      objectReference: {fileID: 0}
+    - target: {fileID: 65075536956448212, guid: 7a5b4f5fd26404ecaa8898cb2e37234b,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 65075536956448212, guid: 7a5b4f5fd26404ecaa8898cb2e37234b,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7a5b4f5fd26404ecaa8898cb2e37234b, type: 2}
@@ -445,7 +456,7 @@ GameObject:
   - component: {fileID: 1625796448}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

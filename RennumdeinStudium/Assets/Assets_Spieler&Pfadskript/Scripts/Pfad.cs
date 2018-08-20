@@ -2,31 +2,55 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pfad : MonoBehaviour {
+public class Pfad : MonoBehaviour
+{
 
-    public GameObject leftPathPrefab;
+    //public GameObject leftPathPrefab; ->gespeichert im Array: pathPrefabs
+    //public GameObject topPathPrefab;
 
     public GameObject currentPath;
 
-	// Use this for initialization
-	void Start () {
+    public GameObject[] pathPrefabs;
 
-        for (int i = 0; i < 10; i++){
+    private static Pfad instance;
+
+    public static Pfad Instance             //mit Pfad.Instance können alle Funktionen aus der Klasse angesprochen werden
+    {
+        get
+        {
+            if (instance == null){
+                instance = GameObject.FindObjectOfType<Pfad>();
+            }
+            return instance;
+        }
+    }
+
+
+    // Use this for initialization
+    void Start()
+    {
+
+        for (int i = 0; i < 40; i++)
+        {       //position z von player speichern und mit path vergleichen
             makePath();
 
         }
 
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
-    public void makePath(){
+    }
 
-        currentPath = (GameObject)Instantiate(leftPathPrefab, currentPath.transform.GetChild(0).transform.GetChild(0).position, Quaternion.identity);    //kopiert das Original und gibt die Kopie zurück && quaternion=natürliche Rot.
-                                                            
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    public void makePath()
+    {
+
+        int randomInd = Random.Range(0, 2);     //Element 2 ist nicht mit enthalten
+
+        currentPath = (GameObject)Instantiate(pathPrefabs[randomInd], currentPath.transform.GetChild(0).transform.GetChild(randomInd).position, Quaternion.identity);    //kopiert das Original und gibt die Kopie zurück && quaternion=natürliche Rot.
+
     }
 }
