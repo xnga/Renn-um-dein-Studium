@@ -9,12 +9,8 @@ public class SpielerScript : MonoBehaviour
     public float turnSpeed = 3;
     private Vector3 direction;
 
-<<<<<<< HEAD
-
-=======
     float horizontal;
 
->>>>>>> ade7df7024aafc4c240bc603979486de29cec4f6
     // Use this for initialization
     void Start()
     {

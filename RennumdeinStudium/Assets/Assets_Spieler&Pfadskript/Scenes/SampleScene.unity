@@ -347,6 +347,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< HEAD
   m_RootOrder: 5
 <<<<<<< HEAD
 =======
@@ -399,6 +400,60 @@ Transform:
   m_RootOrder: 7
 >>>>>>> ea21f66a788081ccf78fcf17b385031b2a47bcb8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+--- !u!1 &522704015
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 522704017}
+  - component: {fileID: 522704016}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &522704016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 522704015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d60550caa11afad4badc3b31c9106893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 1277654602607758, guid: 96de46a3b7fa1d741803958b89920610, type: 2}
+  - {fileID: 1277654602607758, guid: 96de46a3b7fa1d741803958b89920610, type: 2}
+  spawnValues: {x: 25.63, y: 9.94, z: 5.99}
+  spawnWait: 0
+  spawnMostWait: 0.29
+  spawnLeastWait: 0.08
+  startWait: 1
+  stop: 0
+--- !u!4 &522704017
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 522704015}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.9, y: 1.37, z: 14.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> 0f04c87b3708dcedbdf2dec66607f4e00a2f0225
 --- !u!1001 &1135388733
 Prefab:
   m_ObjectHideFlags: 0
@@ -441,6 +496,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 96de46a3b7fa1d741803958b89920610, type: 2}
   m_IsPrefabParent: 0
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> ad7f4eee4839584bc4856b9b372e304fd71161e9
+>>>>>>> 0f04c87b3708dcedbdf2dec66607f4e00a2f0225
 --- !u!1001 &1227205058
 Prefab:
   m_ObjectHideFlags: 0
