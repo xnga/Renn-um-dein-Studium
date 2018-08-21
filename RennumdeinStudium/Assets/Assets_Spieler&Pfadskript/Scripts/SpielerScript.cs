@@ -6,7 +6,7 @@ public class SpielerScript : MonoBehaviour {
 
     public float speed = 10;
     private Vector3 direction;
-
+    
 
 	// Use this for initialization
 	void Start () {
