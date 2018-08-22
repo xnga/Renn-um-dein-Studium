@@ -18,7 +18,7 @@ public class endlosPfad : MonoBehaviour
     }
 
     void OnTriggerExit(Collider other)
-    {     //sobald der Spieler den Collider verlässt wir die Funktion aufgerufen
+    {     //sobald der Spieler den Collider verlässt wird die Funktion aufgerufen
 
         if (other.tag == "Player")
         {
