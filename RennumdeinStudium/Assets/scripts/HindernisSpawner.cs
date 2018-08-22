@@ -4,7 +4,7 @@ using UnityEngine;
 
 // Tutorial: https://www.youtube.com/watch?v=WGn1zvLSndk
 
-public class Spawner : MonoBehaviour {
+public class HindernisSpawner : MonoBehaviour {
 
     public GameObject[] hindernisse;
     public Vector3 spawnwerte = new Vector3(15.0f, 0.0f, 10.0f); // braucht immer aktuelle werte vom akutellen pfadsegment oder position von player plus/minus
@@ -34,7 +34,7 @@ public class Spawner : MonoBehaviour {
 
         while (true) {
 
-            randomHindernis = Random.Range(0, 3); // Welches Object gespawnt? arrayplaetze, welches Object gepickt wird
+            randomHindernis = Random.Range(0, 2); // Welches Object gespawnt? arrayplaetze, welches Object gepickt wird
 
             Vector3 spawnPosition = new Vector3(Random.Range(-spawnwerte.x, spawnwerte.x), spawnwerte.y, Random.Range(-spawnwerte.z, spawnwerte.z)); // Wo Object gespawnt?
 
