@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -57,6 +58,8 @@ public class SpielerScript : MonoBehaviour
 
 }
 =======
+=======
+>>>>>>> ef39854e93b7acad6b41084ca17057f0266ad395
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -108,4 +111,7 @@ public class SpielerScript : MonoBehaviour
 
 
 }
+<<<<<<< HEAD
+>>>>>>> ef39854e93b7acad6b41084ca17057f0266ad395
+=======
 >>>>>>> ef39854e93b7acad6b41084ca17057f0266ad395
