@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class endlosPfad : MonoBehaviour
 {
-
+    
     // Use this for initialization
     void Start()
     {
@@ -23,6 +23,8 @@ public class endlosPfad : MonoBehaviour
         if (other.tag == "Player")
         {
             Pfad.Instance.makePath();
+
+
         }
     }
 }

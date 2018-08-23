@@ -7,6 +7,7 @@ using UnityEngine;
 public class HindernisSpawner : MonoBehaviour {
 
     public GameObject[] hindernisse;
+    public Vector3 spawnerposition;
     public Vector3 spawnwerte = new Vector3(15.0f, 0.0f, 10.0f); // braucht immer aktuelle werte vom akutellen pfadsegment oder position von player plus/minus
     public float spawnWarten = 0.0f; //wartezeit bevor spawnt
     public float spawnMostWarten = 0.5f; // um zwischen spawnvariablen zu switchen
@@ -15,17 +16,38 @@ public class HindernisSpawner : MonoBehaviour {
 
     int randomHindernis;
 
+    public Pfad currentPfadPos;
 
-	void Start () {
+    private static HindernisSpawner instanceHindernissspawner;
 
-        Pfad.Instance.StartCoroutine(waitSpawner());
+    public static HindernisSpawner Instance             //andere Skripte können auf Funktionen aus der Klasse zugreifen
+    {
+        get
+        {
+            if (instanceHindernissspawner == null)
+            {
+                instanceHindernissspawner = GameObject.FindObjectOfType<HindernisSpawner>();
+            }
+            return instanceHindernissspawner;
+        }
+    }
+
+
+	public void Start () {
+
+        spawnerposition = new Vector3(0, 2.0f, 0);
 
 	}
+
+    public void StartRoutine() {
+        StartCoroutine(waitSpawner());
+    }
 	
 	void Update () {
 
         spawnWarten = Random.Range(spawnLeastWarten, spawnMostWarten); // Kreiert eine random Zeit in der gespawnt wird / Unterschiedliche Zeitabstaende
-
+        currentPfadPos = GameObject.Find("Pfad").GetComponent<Pfad>();
+        spawnerposition = currentPfadPos.currentPfadPosition;
 	}
 
     IEnumerator waitSpawner () {

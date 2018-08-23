@@ -12,6 +12,10 @@ public class Pfad : MonoBehaviour
 
     public GameObject[] pathPrefabs;
 
+    public HindernisSpawner hindernis;
+
+    public Vector3 currentPfadPosition;
+
     private static Pfad instance;
 
     public static Pfad Instance             //mit Pfad.Instance können alle Funktionen aus der Klasse angesprochen werden
@@ -33,6 +37,8 @@ public class Pfad : MonoBehaviour
         for (int i = 0; i < 40; i++)
         {       //position z von player speichern und mit path vergleichen
             makePath();
+            //currentPfadPosition = pathPrefabs.position;
+
 
         }
 
@@ -42,7 +48,7 @@ public class Pfad : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     public void makePath()
@@ -51,6 +57,10 @@ public class Pfad : MonoBehaviour
         int randomInd = Random.Range(0, 2);     //Element 2 ist nicht mit enthalten
 
         currentPath = (GameObject)Instantiate(pathPrefabs[randomInd], currentPath.transform.GetChild(0).transform.GetChild(randomInd).position, Quaternion.identity);    //kopiert das Original und gibt die Kopie zurück && quaternion=natürliche Rot.
+
+        //HindernisSpawner.Instance.StartRoutine();
+        //hindernis = GameObject.Find("Pfad").GetComponent<HindernisSpawner>();
+
 
     }
 }
