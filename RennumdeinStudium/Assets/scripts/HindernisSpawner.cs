@@ -18,7 +18,7 @@ public class HindernisSpawner : MonoBehaviour {
 
 	void Start () {
 
-        StartCoroutine(waitSpawner());
+        Pfad.Instance.StartCoroutine(waitSpawner());
 
 	}
 	

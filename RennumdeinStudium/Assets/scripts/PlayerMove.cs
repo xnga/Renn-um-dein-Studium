@@ -6,7 +6,7 @@ public class PlayerMove : MonoBehaviour {
 
     public float speed = 5.0f;
     private Vector3 direction;
-    
+
 
     // Use this for initialization
     void Start()
@@ -41,5 +41,4 @@ public class PlayerMove : MonoBehaviour {
 
         transform.Translate(direction * move);
     }
-
 }
