@@ -214,6 +214,8 @@ MonoBehaviour:
   pathPrefabs:
   - {fileID: 1939271700337932, guid: 7a5b4f5fd26404ecaa8898cb2e37234b, type: 2}
   - {fileID: 1001150727157642, guid: 34e56f38562cd4cf1aa1e91a924a1a1f, type: 2}
+  hindernis: {fileID: 1556342529}
+  currentPfadPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &494548341
 Transform:
   m_ObjectHideFlags: 0
@@ -405,18 +407,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1556342527}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 890fa6eed59324141a156dee02dfd32f, type: 3}
+  m_Script: {fileID: 11500000, guid: b4e961203081e48518ec5a9ff7b1876b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hindernisse:
   - {fileID: 1680058686482202, guid: 0c33224193995401199a8d172f4dbcba, type: 2}
   - {fileID: 1458199389023168, guid: 1d1bd740514ce4489a7c0d50e3a22f2f, type: 2}
   - {fileID: 1738359810466030, guid: 2d1650ea3489e43cf99589b5aedfc07c, type: 2}
+  spawnerposition: {x: 0, y: 0, z: 0}
   spawnwerte: {x: 15, y: 0, z: 10}
   spawnWarten: 0
   spawnMostWarten: 0.5
   spawnLeastWarten: 0.1
   startWarten: 0
+  currentPfadPos: {fileID: 0}
 --- !u!1 &1625796442
 GameObject:
   m_ObjectHideFlags: 0
