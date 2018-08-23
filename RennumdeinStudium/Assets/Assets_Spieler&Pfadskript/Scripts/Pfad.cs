@@ -12,11 +12,14 @@ public class Pfad : MonoBehaviour
 
     public GameObject[] pathPrefabs;
 
-    public HindernisSpawner hindernis;
+    public GameObject spawner;
+    //public GameObject currentSpawner;
 
-    public Vector3 currentPfadPosition;
+    public Vector3 spawnerPos;
+
 
     private static Pfad instance;
+
 
     public static Pfad Instance             //mit Pfad.Instance können alle Funktionen aus der Klasse angesprochen werden
     {
@@ -37,12 +40,20 @@ public class Pfad : MonoBehaviour
         for (int i = 0; i < 40; i++)
         {       //position z von player speichern und mit path vergleichen
             makePath();
-            //currentPfadPosition = pathPrefabs.position;
+            Instantiate(spawner, currentPath.transform.position, Quaternion.identity);
+            spawnerPos = currentPath.transform.position;
+            HindernisSpawner.Instance.SpawnHindernisse();
 
 
+
+            /*if (currentPath = pathPrefabs[0]) {
+                spawnerPos = new Vector3(currentPath.transform.position.x -15, currentPath.transform.position.y, currentPath.transform.position.z);
+            }
+            else
+            {
+                spawnerPos = new Vector3(currentPath.transform.position.x, currentPath.transform.position.y, currentPath.transform.position.z+10);
+            }*/
         }
-
-
     }
 
     // Update is called once per frame
@@ -58,9 +69,13 @@ public class Pfad : MonoBehaviour
 
         currentPath = (GameObject)Instantiate(pathPrefabs[randomInd], currentPath.transform.GetChild(0).transform.GetChild(randomInd).position, Quaternion.identity);    //kopiert das Original und gibt die Kopie zurück && quaternion=natürliche Rot.
 
-        //HindernisSpawner.Instance.StartRoutine();
-        //hindernis = GameObject.Find("Pfad").GetComponent<HindernisSpawner>();
 
+        //SpawnerPos = GameObject.Find("Spawner").GetComponent<HindernisSpawner>();
+        //SpawnerPos.spawnwerte = prefabPos;
+
+     // Pos vom Spawner ändern >> spawnwerte == spawnerpos > noch nicht gegeben
+        //currentSpawnPosition = GameObject.Find("Spawner").GetComponent<HindernisSpawner>();
+        //currentSpawnPosition.spawnwerte = prefabPos;
 
     }
 }

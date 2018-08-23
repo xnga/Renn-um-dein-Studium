@@ -8,10 +8,6 @@ public class Kollision : MonoBehaviour
 {
     public bool playerDead;
 
-    public GUIStyle HUDStyle; // von pattmann
-    public GUIStyle HUDStyle_Dead; // von pattmann
-    public int HUDtime = 180; // von pattmann
-
 	void Start()
 	{
         playerDead = false;
@@ -22,15 +18,15 @@ public class Kollision : MonoBehaviour
     {
         GUI.color = Color.white;
 
-        if (HUDtime > 0)
+        /*if (HUDtime > 0)
         {
             HUDtime--;
             GUI.Box(new Rect(Screen.width / 2, Screen.height / 2, 200, 100), "ESC to Quit\nR to Restart\nGOOD LUCK ;)", HUDStyle);
-        }
+        }*/
 
-        if (playerDead)
+        if (playerDead == true)
         {
-            GUI.Box(new Rect(Screen.width / 2, Screen.height / 2, 200, 100), " Game Over \n Press R to Restart", HUDStyle_Dead);
+            GUI.Box(new Rect(Screen.width / 2, Screen.height / 2, 200, 100), " Game Over \n Press R to Restart");
         }
 
     }
