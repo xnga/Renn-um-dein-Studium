@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 //Tutorial: https://www.youtube.com/watch?v=QRp4V1JTZnM
 
@@ -13,8 +14,14 @@ public class Kollision : MonoBehaviour
         playerDead = false;
 	}
 
+	void Update()
+	{
+        if (playerDead == true) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+	}
 
-    void OnGUI() // von pattmann
+	void OnGUI() // von pattmann
     {
         GUI.color = Color.white;
 
