@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    public int points = 0;
-    // Use this for initialization
+    public int points = 0;  //Punkte fängt bei 0 an
+
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
 
