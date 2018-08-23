@@ -62,7 +62,7 @@ public class Pfad : MonoBehaviour
 
         currentPath = (GameObject)Instantiate(pathPrefabs[randomInd], currentPath.transform.GetChild(0).transform.GetChild(randomInd).position, Quaternion.identity);    //kopiert das Original und gibt die Kopie zurück && quaternion=natürliche Rot.
 
-        spawnerPos = new Vector3(currentPath.transform.position.x, currentPath.transform.position.y, currentPath.transform.position.z);
+        spawnerPos = new Vector3(currentPath.transform.position.x, currentPath.transform.position.y, currentPath.transform.position.z );
         Instantiate(spawner, currentPath.transform.position, Quaternion.identity);
 
        /* if (currentPath = pathPrefabs[0]) {
