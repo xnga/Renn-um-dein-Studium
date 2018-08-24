@@ -41,12 +41,6 @@ public class Pfad : MonoBehaviour
         for (int i = 0; i < 40; i++)
         {       //position z von player speichern und mit path vergleichen
             makePath();
-
-            HindernisSpawner.Instance.SpawnHindernisse();
-
-
-
-
         }
     }
 
@@ -67,6 +61,8 @@ public class Pfad : MonoBehaviour
 
         spawnerPos = new Vector3(currentPath.transform.position.x, currentPath.transform.position.y, currentPath.transform.position.z );
         Instantiate(spawner, currentPath.transform.position, Quaternion.identity);
+
+        HindernisSpawner.Instance.SpawnHindernisse();
 
        /* if (currentPath = pathPrefabs[0]) {
                 spawnerPos = new Vector3(currentPath.transform.position.x -15, currentPath.transform.position.y, currentPath.transform.position.z);
