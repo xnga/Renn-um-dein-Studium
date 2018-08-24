@@ -13,16 +13,8 @@ public class Pfad : MonoBehaviour
     public GameObject[] pathPrefabs;
 
     public GameObject spawner;
-<<<<<<< HEAD
     public Vector3 spawnerPos;
     public Vector3 spawnPlace;
-=======
-    //public GameObject currentSpawner;
-
-    public Vector3 spawnerPos;
-
-    public GameObject terrain;
->>>>>>> 6e260b22b1b74ff749ee9fcc1f5994d0806ccf04
 
     private static Pfad instance;
 
@@ -30,7 +22,8 @@ public class Pfad : MonoBehaviour
     {
         get
         {
-            if (instance == null){
+            if (instance == null)
+            {
                 instance = GameObject.FindObjectOfType<Pfad>();
             }
             return instance;
@@ -42,7 +35,7 @@ public class Pfad : MonoBehaviour
     void Start()
     {
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 40; i++)
         {       //position z von player speichern und mit path vergleichen
             makePath();
         }
@@ -51,7 +44,7 @@ public class Pfad : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void makePath()
@@ -61,10 +54,9 @@ public class Pfad : MonoBehaviour
 
         currentPath = (GameObject)Instantiate(pathPrefabs[randomInd], currentPath.transform.GetChild(0).transform.GetChild(randomInd).position, Quaternion.identity);    //kopiert das Original und gibt die Kopie zurück && quaternion=natürliche Rot.
 
-<<<<<<< HEAD
         if (randomInd == 0)
         {
-            spawnerPos = new Vector3(currentPath.transform.position.x - 15 , currentPath.transform.position.y, currentPath.transform.position.z);
+            spawnerPos = new Vector3(currentPath.transform.position.x - 15, currentPath.transform.position.y, currentPath.transform.position.z);
             Instantiate(spawner, spawnerPos, Quaternion.identity);
             HindernisSpawner.Instance.SpawnHindernisse(spawnerPos);
         }
@@ -79,18 +71,12 @@ public class Pfad : MonoBehaviour
 
         //Instantiate(spawner, spawnerPos, Quaternion.identity);
         //HindernisSpawner.Instance.SpawnHindernisse();
-=======
-        terrain = (GameObject)Instantiate(terrain, new Vector3(currentPath.transform.position.x, currentPath.transform.position.y, currentPath.transform.position.z), Quaternion.identity);
-
-        spawnerPos = new Vector3(currentPath.transform.position.x, currentPath.transform.position.y, currentPath.transform.position.z );
-        Instantiate(spawner, currentPath.transform.position, Quaternion.identity);
->>>>>>> 6e260b22b1b74ff749ee9fcc1f5994d0806ccf04
 
 
         //SpawnerPos = GameObject.Find("Spawner").GetComponent<HindernisSpawner>();
         //SpawnerPos.spawnwerte = prefabPos;
 
-     // Pos vom Spawner ändern >> spawnwerte == spawnerpos > noch nicht gegeben
+        // Pos vom Spawner ändern >> spawnwerte == spawnerpos > noch nicht gegeben
         //currentSpawnPosition = GameObject.Find("Spawner").GetComponent<HindernisSpawner>();
         //currentSpawnPosition.spawnwerte = prefabPos;
 
