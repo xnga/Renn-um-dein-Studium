@@ -17,6 +17,7 @@ public class Pfad : MonoBehaviour
 
     public Vector3 spawnerPos;
 
+    public GameObject terrain;
 
     private static Pfad instance;
 
@@ -61,6 +62,8 @@ public class Pfad : MonoBehaviour
         int randomInd = Random.Range(0, 2);     //Element 2 ist nicht mit enthalten
 
         currentPath = (GameObject)Instantiate(pathPrefabs[randomInd], currentPath.transform.GetChild(0).transform.GetChild(randomInd).position, Quaternion.identity);    //kopiert das Original und gibt die Kopie zurück && quaternion=natürliche Rot.
+
+        terrain = (GameObject)Instantiate(terrain, new Vector3(currentPath.transform.position.x, currentPath.transform.position.y, currentPath.transform.position.z), Quaternion.identity);
 
         spawnerPos = new Vector3(currentPath.transform.position.x, currentPath.transform.position.y, currentPath.transform.position.z );
         Instantiate(spawner, currentPath.transform.position, Quaternion.identity);
