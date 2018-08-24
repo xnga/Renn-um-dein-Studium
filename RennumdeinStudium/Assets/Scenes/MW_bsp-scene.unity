@@ -392,6 +392,7 @@ MonoBehaviour:
   - {fileID: 1001150727157642, guid: 34e56f38562cd4cf1aa1e91a924a1a1f, type: 2}
   spawner: {fileID: 1872155188064148, guid: a8712c0491a5a4109bd2a8b9e1a42ba6, type: 2}
   spawnerPos: {x: 0, y: 0, z: 0}
+  spawnPlace: {x: 0, y: 0, z: 0}
 --- !u!4 &494548341
 Transform:
   m_ObjectHideFlags: 0
@@ -1906,8 +1907,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1625796446}
-  smoothSpeed: 4
-  offset: {x: 3, y: 4, z: -6}
+  smoothSpeed: 5
+  offset: {x: 7, y: 7, z: -10}
 --- !u!81 &1669190045
 AudioListener:
   m_ObjectHideFlags: 0

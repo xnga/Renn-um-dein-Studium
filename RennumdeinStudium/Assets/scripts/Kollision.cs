@@ -9,6 +9,8 @@ public class Kollision : MonoBehaviour
 {
     public bool playerDead;
 
+
+
 	void Start()
 	{
         playerDead = false;
@@ -26,19 +28,29 @@ public class Kollision : MonoBehaviour
         {
             Destroy(this.gameObject);
             playerDead = true;
+            ReloadGame();
         }
 
         if (colObject.gameObject.name == "prefab_50(Clone)")
         {
             Destroy(this.gameObject);
             playerDead = true;
+            ReloadGame();
         }
 
         if (colObject.gameObject.name == "prefab_baum(Clone)")
         {
             Destroy(this.gameObject);
             playerDead = true;
+            ReloadGame();
         }
     }
 
+
+    void ReloadGame()
+    {
+
+        GameOver.Instance.Dead();
+
+    }
 }

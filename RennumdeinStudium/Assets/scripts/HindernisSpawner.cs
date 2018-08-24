@@ -8,7 +8,8 @@ public class HindernisSpawner : MonoBehaviour
 {
 
     public GameObject[] hindernisse;
-    //public Vector3 spawnwerte; // braucht immer aktuelle werte vom akutellen pfadsegment oder position von player plus/minus
+    public Vector3 spawnwerte; // braucht immer aktuelle werte vom akutellen pfadsegment oder position von player plus/minus
+    public Vector3 spawnerpos;
 
     private static HindernisSpawner instanceHindernissspawner;
 
@@ -36,13 +37,12 @@ public class HindernisSpawner : MonoBehaviour
     public void Update()
     {
 
-
-
     }
 
     public void SpawnHindernisse( Vector3 spawnwerte)
     {
-
+        //spawnerpos = GameObject.Find("spawner(Clone)").GetComponent<Pfad>().transform.position;
+        //spawnerpos.spawnerPos = spawnwerte;
         //spawnwerte = Pfad.Instance.spawnPlace;
 
         for (int i = 0; i < 8; i++)
