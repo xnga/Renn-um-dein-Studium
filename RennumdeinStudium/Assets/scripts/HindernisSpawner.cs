@@ -7,16 +7,7 @@ using UnityEngine;
 public class HindernisSpawner : MonoBehaviour {
 
     public GameObject[] hindernisse;
-    public Vector3 spawnerposition;
-    public Vector3 spawnwerte = new Vector3(15.0f, 0.0f, 10.0f); // braucht immer aktuelle werte vom akutellen pfadsegment oder position von player plus/minus
-    public float spawnWarten = 0.0f; //wartezeit bevor spawnt
-    public float spawnMostWarten = 0.5f; // um zwischen spawnvariablen zu switchen
-    public float spawnLeastWarten = 0.1f; // um zwischen spawnvariablen zu switchen
-    public int startWarten = 0;
-
-    int randomHindernis;
-
-    public Pfad currentPfadPos;
+    public Vector3 spawnwerte; // braucht immer aktuelle werte vom akutellen pfadsegment oder position von player plus/minus
 
     private static HindernisSpawner instanceHindernissspawner;
 
@@ -35,34 +26,42 @@ public class HindernisSpawner : MonoBehaviour {
 
 	public void Start () {
 
-        spawnerposition = new Vector3(0, 2.0f, 0);
+        // SpawnHindernisse();
 
 	}
 
-    public void StartRoutine() {
-        StartCoroutine(waitSpawner());
-    }
 	
 	void Update () {
 
-        spawnWarten = Random.Range(spawnLeastWarten, spawnMostWarten); // Kreiert eine random Zeit in der gespawnt wird / Unterschiedliche Zeitabstaende
-        currentPfadPos = GameObject.Find("Pfad").GetComponent<Pfad>();
-        spawnerposition = currentPfadPos.currentPfadPosition;
+        //spawnwerte = GameObject.Find("spawner(Clone)").transform.position;
+
+        /*arrayPrefab = GameObject.Find("pathPrefabs").GetComponent<Pfad>();
+
+        if (arrayPrefab.randomInd == 1)
+        {
+            spawnwerte = Pfad.Instance.prefabPos;
+        }
+        if (arrayPrefab.randomInd == 0) 
+        {
+            spawnwerte = Pfad.Instance.prefabPos;
+        }*/
+
 	}
 
-    IEnumerator waitSpawner () {
+    public void SpawnHindernisse () {
+        
+        spawnwerte = Pfad.Instance.spawnerPos;
 
-        yield return new WaitForSeconds(startWarten);
+        for (int i = 0; i < 10; i++) {
 
-        while (true) {
+            int randomHindernis = Random.Range(0, 3); // Welches Object gespawnt? arrayplaetze, welches Object gepickt wird
 
-            randomHindernis = Random.Range(0, 2); // Welches Object gespawnt? arrayplaetze, welches Object gepickt wird
-
-            Vector3 spawnPosition = new Vector3(Random.Range(-spawnwerte.x, spawnwerte.x), spawnwerte.y, Random.Range(-spawnwerte.z, spawnwerte.z)); // Wo Object gespawnt?
+            Vector3 spawnPosition = new Vector3(Random.Range(spawnwerte.x +15 , spawnwerte.x-15), spawnwerte.y +2, Random.Range(spawnwerte.z-10, spawnwerte.z+10)); // Wo Object gespawnt?
 
             Instantiate(hindernisse[randomHindernis], spawnPosition + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation); //Objecte spawnen
 
-            yield return new WaitForSeconds(spawnWarten);
+
+
         }
     }
 }
