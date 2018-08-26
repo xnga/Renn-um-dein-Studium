@@ -56,3 +56,4 @@ MonoBehaviour:
   - {fileID: 1458199389023168, guid: 1d1bd740514ce4489a7c0d50e3a22f2f, type: 2}
   - {fileID: 1738359810466030, guid: 2d1650ea3489e43cf99589b5aedfc07c, type: 2}
   spawnwerte: {x: 0, y: 0, z: 0}
+  spawnerpos: {x: 0, y: 0, z: 0}

@@ -45,7 +45,7 @@ public class HindernisSpawner : MonoBehaviour
         //spawnerpos.spawnerPos = spawnwerte;
         //spawnwerte = Pfad.Instance.spawnPlace;
 
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 5; i++)
         {
 
             int randomHindernis = Random.Range(0, 3); // Welches Object gespawnt? arrayplaetze, welches Object gepickt wird
