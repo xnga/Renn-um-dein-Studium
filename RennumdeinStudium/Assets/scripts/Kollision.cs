@@ -24,21 +24,21 @@ public class Kollision : MonoBehaviour
     void OnCollisionEnter(Collision colObject)
     {
 
-        if (colObject.gameObject.name == "prefab_tisch(Clone)")
+        if (colObject.gameObject.name == "test(Clone)")
         {
             Destroy(this.gameObject);
             playerDead = true;
             ReloadGame();
         }
 
-        if (colObject.gameObject.name == "prefab_50(Clone)")
+        if (colObject.gameObject.name == "test2(Clone)")
         {
             Destroy(this.gameObject);
             playerDead = true;
             ReloadGame();
         }
 
-        if (colObject.gameObject.name == "prefab_baum(Clone)")
+        if (colObject.gameObject.name == "stein(Clone)")
         {
             Destroy(this.gameObject);
             playerDead = true;

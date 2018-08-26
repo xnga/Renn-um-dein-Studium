@@ -58,13 +58,15 @@ public class Pfad : MonoBehaviour
         {
             spawnerPos = new Vector3(currentPath.transform.position.x - 15, currentPath.transform.position.y, currentPath.transform.position.z);
             Instantiate(spawner, spawnerPos, Quaternion.identity);
-            HindernisSpawner.Instance.SpawnHindernisse(spawnerPos);
+            spawnPlace = new Vector3(currentPath.transform.position.x +15, currentPath.transform.position.y, currentPath.transform.position.z-40);
+            HindernisSpawner.Instance.SpawnHindernisse(spawnPlace);
         }
         else
         {
             spawnerPos = new Vector3(currentPath.transform.position.x, currentPath.transform.position.y, currentPath.transform.position.z + 10);
             Instantiate(spawner, spawnerPos, Quaternion.identity);
-            HindernisSpawner.Instance.SpawnHindernisse(spawnerPos);
+            spawnPlace = new Vector3(currentPath.transform.position.x, currentPath.transform.position.y, currentPath.transform.position.z -50);
+            HindernisSpawner.Instance.SpawnHindernisse(spawnPlace);
         }
         //spawnerPos = new Vector3(currentPath.transform.position.x, currentPath.transform.position.y, currentPath.transform.position.z );
         //Instantiate(spawner, currentPath.transform.position, Quaternion.identity);

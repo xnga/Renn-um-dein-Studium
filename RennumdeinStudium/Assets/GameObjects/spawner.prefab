@@ -52,8 +52,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hindernisse:
-  - {fileID: 1680058686482202, guid: 0c33224193995401199a8d172f4dbcba, type: 2}
-  - {fileID: 1458199389023168, guid: 1d1bd740514ce4489a7c0d50e3a22f2f, type: 2}
-  - {fileID: 1738359810466030, guid: 2d1650ea3489e43cf99589b5aedfc07c, type: 2}
+  - {fileID: 1671417934677192, guid: 63156bea081b340e0b66a5308451b71e, type: 2}
+  - {fileID: 1979673397701520, guid: 767c4bdcf728e416584c8ceee280bf7f, type: 2}
+  - {fileID: 1996378974465048, guid: e35342b99006248d5bea03003cb28f8f, type: 2}
   spawnwerte: {x: 0, y: 0, z: 0}
   spawnerpos: {x: 0, y: 0, z: 0}

@@ -15,14 +15,17 @@ ModelImporter:
     400008: Table.004
     2100000: material_beine
     2100002: Materia_tablel
+    2100004: Material
     2300000: Table
     2300002: Table.001
     2300004: Table.002
     2300006: Table.004
+    2300008: //RootNode
     3300000: Table
     3300002: Table.001
     3300004: Table.002
     3300006: Table.004
+    3300008: //RootNode
     4300000: Table.004
     4300002: Table.002
     4300004: Table.001
