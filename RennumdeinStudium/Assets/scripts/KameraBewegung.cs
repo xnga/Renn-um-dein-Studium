@@ -7,7 +7,7 @@ public class KameraBewegung : MonoBehaviour {
     public Transform target;
 
     public float smoothSpeed = 5.0f;
-    public Vector3 offset = new Vector3(0, 5.0f, 5.0f);
+    public Vector3 offset;
 
     void FixedUpdate()
     {
@@ -17,6 +17,4 @@ public class KameraBewegung : MonoBehaviour {
 
         transform.LookAt(target);
     }
-
-
 }
