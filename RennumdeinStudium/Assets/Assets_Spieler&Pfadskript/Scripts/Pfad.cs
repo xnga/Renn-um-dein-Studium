@@ -8,11 +8,9 @@ public class Pfad : MonoBehaviour
     //public GameObject leftPathPrefab; ->gespeichert im Array: pathPrefabs
     //public GameObject topPathPrefab;
 
-<<<<<<< HEAD
     public GameObject plane;
-=======
+
     public GameObject currentPath;
->>>>>>> b7986616b44a2c67a6e20e1a59d59fc26f7bb4ee
 
     public GameObject[] pathPrefabs;
 
@@ -40,19 +38,14 @@ public class Pfad : MonoBehaviour
     {
 
         for (int i = 0; i < 40; i++)
-<<<<<<< HEAD
-        {       
+
+        {
             makePath();
 
-            HindernisSpawner.Instance.SpawnHindernisse();
-
-
-
-
-=======
-        {       //position z von player speichern und mit path vergleichen
+            HindernisSpawner.Instance.SpawnHindernisse(spawnerPos);
+        }
+        {
             makePath();
->>>>>>> b7986616b44a2c67a6e20e1a59d59fc26f7bb4ee
         }
     }
 
@@ -61,11 +54,10 @@ public class Pfad : MonoBehaviour
     {
 
     }
+        [SerializeField]
+        public void makePath()
 
-    public void makePath()
-<<<<<<< HEAD
-    {
-
+        {
         int randomInd = Random.Range(0, 2);     //Element 2 ist nicht mit enthalten
 
         currentPath = (GameObject)Instantiate(pathPrefabs[randomInd], currentPath.transform.GetChild(0).transform.GetChild(randomInd).position, Quaternion.identity);    //kopiert das Original und gibt die Kopie zurück && quaternion=natürliche Rot.
@@ -75,50 +67,13 @@ public class Pfad : MonoBehaviour
         spawnerPos = new Vector3(currentPath.transform.position.x, currentPath.transform.position.y, currentPath.transform.position.z );
         Instantiate(spawner, currentPath.transform.position, Quaternion.identity);
 
-       /* if (currentPath = pathPrefabs[0]) {
-                spawnerPos = new Vector3(currentPath.transform.position.x -15, currentPath.transform.position.y, currentPath.transform.position.z);
-            }
-            else
-            {
-                spawnerPos = new Vector3(currentPath.transform.position.x, currentPath.transform.position.y, currentPath.transform.position.z+10);
-            }*/
-        //SpawnerPos = GameObject.Find("Spawner").GetComponent<HindernisSpawner>();
-        //SpawnerPos.spawnwerte = prefabPos;
-
-     // Pos vom Spawner ändern >> spawnwerte == spawnerpos > noch nicht gegeben
-        //currentSpawnPosition = GameObject.Find("Spawner").GetComponent<HindernisSpawner>();
-        //currentSpawnPosition.spawnwerte = prefabPos;
-
-    }
-}
-=======
-    {
-
-        int randomInd = Random.Range(0, 2);     //Element 2 ist nicht mit enthalten
-
-        currentPath = (GameObject)Instantiate(pathPrefabs[randomInd], currentPath.transform.GetChild(0).transform.GetChild(randomInd).position, Quaternion.identity);    //kopiert das Original und gibt die Kopie zurück && quaternion=natürliche Rot.
-
-        if (randomInd == 0)
-        {
-            spawnerPos = new Vector3(currentPath.transform.position.x - 15, currentPath.transform.position.y, currentPath.transform.position.z);
-            Instantiate(spawner, spawnerPos, Quaternion.identity);
-            spawnPlace = new Vector3(currentPath.transform.position.x +15, currentPath.transform.position.y, currentPath.transform.position.z-40);
-            HindernisSpawner.Instance.SpawnHindernisse(spawnPlace);
-        }
-        else
-        {
-            spawnerPos = new Vector3(currentPath.transform.position.x, currentPath.transform.position.y, currentPath.transform.position.z + 10);
-            Instantiate(spawner, spawnerPos, Quaternion.identity);
-            spawnPlace = new Vector3(currentPath.transform.position.x, currentPath.transform.position.y, currentPath.transform.position.z -50);
-            HindernisSpawner.Instance.SpawnHindernisse(spawnPlace);
-        }
-        //spawnerPos = new Vector3(currentPath.transform.position.x, currentPath.transform.position.y, currentPath.transform.position.z );
-        //Instantiate(spawner, currentPath.transform.position, Quaternion.identity);
-
-        //Instantiate(spawner, spawnerPos, Quaternion.identity);
-        //HindernisSpawner.Instance.SpawnHindernisse();
-
-
+        /* if (currentPath = pathPrefabs[0]) {
+                 spawnerPos = new Vector3(currentPath.transform.position.x -15, currentPath.transform.position.y, currentPath.transform.position.z);
+             }
+             else
+             {
+                 spawnerPos = new Vector3(currentPath.transform.position.x, currentPath.transform.position.y, currentPath.transform.position.z+10);
+             }*/
         //SpawnerPos = GameObject.Find("Spawner").GetComponent<HindernisSpawner>();
         //SpawnerPos.spawnwerte = prefabPos;
 
@@ -126,8 +81,42 @@ public class Pfad : MonoBehaviour
         //currentSpawnPosition = GameObject.Find("Spawner").GetComponent<HindernisSpawner>();
         //currentSpawnPosition.spawnwerte = prefabPos;
 
+        {
+
+            //int randomInd = Random.Range(0, 2);     //Element 2 ist nicht mit enthalten          currentPath = (GameObject)Instantiate(pathPrefabs[randomInd], currentPath.transform.GetChild(0).transform.GetChild(randomInd).position, Quaternion.identity);    //kopiert das Original und gibt die Kopie zurük && quaternion=natüliche Rot.          if (randomInd == 0)
+            {
+                spawnerPos = new Vector3(currentPath.transform.position.x - 15, currentPath.transform.position.y, currentPath.transform.position.z);
+                Instantiate(spawner, spawnerPos, Quaternion.identity);
+                spawnPlace = new Vector3(currentPath.transform.position.x + 15, currentPath.transform.position.y, currentPath.transform.position.z - 40);
+                HindernisSpawner.Instance.SpawnHindernisse(spawnPlace);
+            }
+            else
+            {
+                spawnerPos = new Vector3(currentPath.transform.position.x, currentPath.transform.position.y, currentPath.transform.position.z + 10);
+                Instantiate(spawner, spawnerPos, Quaternion.identity);
+                spawnPlace = new Vector3(currentPath.transform.position.x, currentPath.transform.position.y, currentPath.transform.position.z - 50);
+                HindernisSpawner.Instance.SpawnHindernisse(spawnPlace);
+            }
+            //spawnerPos = new Vector3(currentPath.transform.position.x, currentPath.transform.position.y, currentPath.transform.position.z );
+            //Instantiate(spawner, currentPath.transform.position, Quaternion.identity);
+
+            //Instantiate(spawner, spawnerPos, Quaternion.identity);
+            //HindernisSpawner.Instance.SpawnHindernisse();
+
+
+            //SpawnerPos = GameObject.Find("Spawner").GetComponent<HindernisSpawner>();
+            //SpawnerPos.spawnwerte = prefabPos;
+
+            // Pos vom Spawner ädern >> spawnwerte == spawnerpos > noch nicht gegeben
+            //currentSpawnPosition = GameObject.Find("Spawner").GetComponent<HindernisSpawner>();
+            //currentSpawnPosition.spawnwerte = prefabPos;
+
+        }  
+
     }
 
-
 }
->>>>>>> b7986616b44a2c67a6e20e1a59d59fc26f7bb4ee
+
+
+
+
