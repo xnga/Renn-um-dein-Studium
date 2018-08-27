@@ -217,7 +217,7 @@ MonoBehaviour:
   - {fileID: 1001150727157642, guid: 34e56f38562cd4cf1aa1e91a924a1a1f, type: 2}
   spawner: {fileID: 1872155188064148, guid: a8712c0491a5a4109bd2a8b9e1a42ba6, type: 2}
   spawnerPos: {x: 0, y: 0, z: 0}
-  terrain: {fileID: 1572227302}
+  plane: {fileID: 1572227302}
 --- !u!4 &494548341
 Transform:
   m_ObjectHideFlags: 0
@@ -1522,7 +1522,7 @@ MonoBehaviour:
   - {fileID: 1001150727157642, guid: 34e56f38562cd4cf1aa1e91a924a1a1f, type: 2}
   spawner: {fileID: 1872155188064148, guid: a8712c0491a5a4109bd2a8b9e1a42ba6, type: 2}
   spawnerPos: {x: 0, y: 0, z: 0}
-  terrain: {fileID: 1572227302}
+  plane: {fileID: 1572227302}
 --- !u!1 &1580763358
 GameObject:
   m_ObjectHideFlags: 0

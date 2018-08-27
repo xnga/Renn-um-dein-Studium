@@ -17,7 +17,7 @@ public class Pfad : MonoBehaviour
 
     public Vector3 spawnerPos;
 
-    public GameObject terrain;
+    public GameObject plane;
 
     private static Pfad instance;
 
@@ -39,8 +39,14 @@ public class Pfad : MonoBehaviour
     {
 
         for (int i = 0; i < 40; i++)
-        {       //position z von player speichern und mit path vergleichen
+        {       
             makePath();
+
+            HindernisSpawner.Instance.SpawnHindernisse();
+
+
+
+
         }
     }
 
@@ -57,12 +63,10 @@ public class Pfad : MonoBehaviour
 
         currentPath = (GameObject)Instantiate(pathPrefabs[randomInd], currentPath.transform.GetChild(0).transform.GetChild(randomInd).position, Quaternion.identity);    //kopiert das Original und gibt die Kopie zurück && quaternion=natürliche Rot.
 
-        terrain = (GameObject)Instantiate(terrain, new Vector3(currentPath.transform.position.x, currentPath.transform.position.y, currentPath.transform.position.z), Quaternion.identity);
+        plane = (GameObject)Instantiate(plane, new Vector3(currentPath.transform.position.x, currentPath.transform.position.y, currentPath.transform.position.z), Quaternion.identity);
 
         spawnerPos = new Vector3(currentPath.transform.position.x, currentPath.transform.position.y, currentPath.transform.position.z );
         Instantiate(spawner, currentPath.transform.position, Quaternion.identity);
-
-        HindernisSpawner.Instance.SpawnHindernisse();
 
        /* if (currentPath = pathPrefabs[0]) {
                 spawnerPos = new Vector3(currentPath.transform.position.x -15, currentPath.transform.position.y, currentPath.transform.position.z);
