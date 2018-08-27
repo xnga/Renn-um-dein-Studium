@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpielerScript : MonoBehaviour {
+    public int points = 0;
+
 
     public float speed = 10;
     public float turnSpeed = 3;
@@ -49,5 +51,8 @@ public class SpielerScript : MonoBehaviour {
         transform.Translate(direction * move);
 	}
 
-
+    private void OnGUI()
+    {
+        GUI.Label(new Rect(10, 10, 100, 20), "Score:" + points);
+    }
 }
