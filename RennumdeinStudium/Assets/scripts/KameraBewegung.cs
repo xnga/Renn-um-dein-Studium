@@ -6,7 +6,7 @@ public class KameraBewegung : MonoBehaviour {
 
     public Transform target;
 
-    public float smoothSpeed = 5.0f;
+    public float smoothSpeed = 0.1f;
     public Vector3 offset;
 
     void FixedUpdate()
