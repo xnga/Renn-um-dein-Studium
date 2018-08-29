@@ -4,10 +4,12 @@ using UnityEngine;
 
 // Tutorial: https://www.youtube.com/watch?v=WGn1zvLSndk
 
-public class HindernisSpawner : MonoBehaviour {
+public class HindernisSpawner : MonoBehaviour
+{
 
     public GameObject[] hindernisse;
     public Vector3 spawnwerte; // braucht immer aktuelle werte vom akutellen pfadsegment oder position von player plus/minus
+    public Vector3 spawnerpos;
 
     private static HindernisSpawner instanceHindernissspawner;
 
@@ -24,39 +26,35 @@ public class HindernisSpawner : MonoBehaviour {
     }
 
 
-	public void Start () {
+    public void Start()
+    {
 
         // SpawnHindernisse();
 
-	}
+    }
 
-	
-	void Update () {
 
-        //spawnwerte = GameObject.Find("spawner(Clone)").transform.position;
+    public void Update()
+    {
 
-        /*arrayPrefab = GameObject.Find("pathPrefabs").GetComponent<Pfad>();
+    }
 
-        if (arrayPrefab.randomInd == 1)
+    public void SpawnHindernisse( Vector3 spawnwerte)
+    {
+        //spawnerpos = GameObject.Find("spawner(Clone)").GetComponent<Pfad>().transform.position;
+        //spawnerpos.spawnerPos = spawnwerte;
+        //spawnwerte = Pfad.Instance.spawnPlace;
+
+        for (int i = 0; i < 5; i++)
         {
-            spawnwerte = Pfad.Instance.prefabPos;
-        }
-        if (arrayPrefab.randomInd == 0) 
-        {
-            spawnwerte = Pfad.Instance.prefabPos;
-        }*/
-
-	}
-
-    public void SpawnHindernisse () {
-        
-        spawnwerte = Pfad.Instance.spawnerPos;
-
-        for (int i = 0; i < 10; i++) {
 
             int randomHindernis = Random.Range(0, 3); // Welches Object gespawnt? arrayplaetze, welches Object gepickt wird
 
+<<<<<<< HEAD
             Vector3 spawnPosition = new Vector3(Random.Range(spawnwerte.x +15 , spawnwerte.x-15), spawnwerte.y +2, Random.Range(spawnwerte.z-20, spawnwerte.z-20)); // Wo Object gespawnt?
+=======
+            Vector3 spawnPosition = new Vector3(Random.Range(spawnwerte.x + 15, spawnwerte.x - 15), spawnwerte.y + 2, Random.Range(spawnwerte.z - 10, spawnwerte.z + 10)); // Wo Object gespawnt?
+>>>>>>> 0b2335f31206ec6004ef2be5e654401914ae2405
 
             Instantiate(hindernisse[randomHindernis], spawnPosition + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation); //Objecte spawnen
 
