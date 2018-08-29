@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpielerScript : MonoBehaviour {
+    public int points = 0;
+
 
     public float speed = 10;
     public float turnSpeed = 20;
@@ -65,6 +67,7 @@ public class SpielerScript : MonoBehaviour {
             isGrounded = Physics.Raycast(transform.position, -Vector3.up, distToGround);    //Raycast misst die Distanz von der Pos. des Spielers zum Boden
 
 
+
             if (Input.GetKeyDown(KeyCode.Space) && isGrounded)                              //wenn die Leertaste gerdückt ist & Spieler auf dem Boden steht
             {
                 GetComponent<Rigidbody>().AddForce(0, jumpStrength, 0); //Stärke der Kraft hinzufügen
@@ -72,3 +75,10 @@ public class SpielerScript : MonoBehaviour {
         }
 
     }
+
+    /*private void OnGUI()
+    {
+        GUI.Label(new Rect(10, 10, 100, 20), "Score:" + points);
+    }
+*/
+

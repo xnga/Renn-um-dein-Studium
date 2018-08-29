@@ -20,7 +20,7 @@ public class CoinScript : MonoBehaviour
     {
         if (other.name == "Player")
         {
-            other.GetComponent<PlayerScript>().points++;
+            other.GetComponent<SpielerScript>().points++;
             Destroy(gameObject);
         }
     }
