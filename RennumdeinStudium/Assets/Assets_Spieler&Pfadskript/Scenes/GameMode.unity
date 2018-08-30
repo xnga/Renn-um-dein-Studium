@@ -221,7 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 867222217}
   smoothSpeed: 0.1
-  offset: {x: 0, y: 4, z: -8}
+  offset: {x: 0, y: 11.49, z: -21.64}
 --- !u!20 &282840813
 Camera:
   m_ObjectHideFlags: 0
@@ -238,10 +238,10 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0
+  near clip plane: 0.01
   far clip plane: 1000
-  field of view: 60
-  orthographic: 1
+  field of view: 30
+  orthographic: 0
   orthographic size: 5.48
   m_Depth: -1
   m_CullingMask:
@@ -397,9 +397,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7603231442004eaea15b8b064600e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  points: 0
   speed: 10
-  turnSpeed: 30
-  jumpStrength: 5
+  turnSpeed: 60
+  jumpStrength: 500
   isGrounded: 1
 --- !u!54 &867222219
 Rigidbody:
