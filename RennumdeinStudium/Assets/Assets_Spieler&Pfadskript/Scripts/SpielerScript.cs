@@ -3,23 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SpielerScript : MonoBehaviour {
+public class SpielerScript : MonoBehaviour
+{
     public int points = 0;
-
-    
 
 
     public float speed = 10;
     public float turnSpeed = 20;
     public float jumpStrength = 5f;
-    //private Vector3 direction;
     float horizontal;
 
     public bool isGrounded = true;
     private float distToGround = 0f;
 
-
-    //[SerializeField] Rigidbody rb; //um einzelne Werte hinzuzufügen
 
     Animator animator;
 
@@ -54,10 +50,11 @@ public class SpielerScript : MonoBehaviour {
     public float sprintSpeed = 5f;
 
     Rigidbody myBody;
-    
+
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
 
         myBody = GetComponent<Rigidbody>();
         Thirstbar.maxValue = Thirst;
@@ -70,36 +67,44 @@ public class SpielerScript : MonoBehaviour {
 
         updateUI();
 
-        //direction = Vector3.zero;       //Anfangspunkt
 
-        //animator = GetComponent<Animator>();
-		
-	}
+    }
 
     // Update is called once per frame
     void Update()
     {
 
         horizontal = Input.GetAxis("Horizontal");
+
         float _speed = speed * Time.deltaTime;
 
-        if (Input.GetKey(KeyCode.W))
-        {
-            //direction = Vector3.forward;
-            transform.position += transform.forward * _speed;
-            animator.SetTrigger("run");
 
-        }
-        else if (Input.GetKey(KeyCode.S))
+        if (Input.GetAxis("Vertical") > 0)
         {
-            //direction = Vector3.back;
-            transform.position += -transform.forward * _speed;
-           // animator.SetTrigger("backwards-run");
+            transform.position += transform.forward * _speed * Input.GetAxis("Vertical");
         }
+        if (Input.GetAxis("Vertical") < 0)
+        {
+            transform.position += transform.forward * _speed * Input.GetAxis("Vertical");
+        }
+
+        //if (Input.GetKey(KeyCode.W))
+        //{
+        //    //direction = Vector3.forward;
+        //    transform.position += transform.forward * _speed * Input.GetAxis("Vertical");
+        //    animator.SetTrigger("run");
+
+        //}
+        //else if (Input.GetKey(KeyCode.S))
+        //{
+        //    //direction = Vector3.back;
+        //    transform.position += transform.forward * _speed * Input.GetAxis("Vertical");
+        //   // animator.SetTrigger("backwards-run");
+        //}
 
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate (0, horizontal * turnSpeed * Time.deltaTime, 0);
+            transform.Rotate(0, horizontal * turnSpeed * Time.deltaTime, 0);
         }
         else if (Input.GetKey(KeyCode.A))
         {
@@ -107,18 +112,20 @@ public class SpielerScript : MonoBehaviour {
         }
     }
 
-        private void FixedUpdate()
+    private void FixedUpdate()
+    {
+        distToGround = GetComponent<CapsuleCollider>().bounds.extents.y;                //Distanz y-Achse
+        isGrounded = Physics.Raycast(transform.position, -Vector3.up, distToGround);    //Raycast misst die Distanz von der Pos. des Spielers zum Boden
+
+
+
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)                              //wenn die Leertaste gerdückt ist & Spieler auf dem Boden steht
         {
-            distToGround = GetComponent<CapsuleCollider>().bounds.extents.y;                //Distanz y-Achse
-            isGrounded = Physics.Raycast(transform.position, -Vector3.up, distToGround);    //Raycast misst die Distanz von der Pos. des Spielers zum Boden
-
-
-<<<<<<< HEAD
-        transform.Translate(direction * move);
-
+            GetComponent<Rigidbody>().AddForce(0, jumpStrength, 0); //Stärke der Kraft hinzufügen
+        }
 
         CalculateValues();
-	}
+    }
 
 
 
@@ -132,7 +139,7 @@ public class SpielerScript : MonoBehaviour {
     {
         Hunger -= hungerOverTime * Time.deltaTime;
         Thirst -= thirstOverTime * Time.deltaTime;
-        
+
         /*if(Hunger<= minAmount || Thirst <= minAmount)
         {
             Health -= healthOverTime * Time.deltaTime;
@@ -141,7 +148,7 @@ public class SpielerScript : MonoBehaviour {
         }
         */
 
-        if(myBody.velocity.magnitude>=sprintSpeed && myBody.velocity.y == 0)
+        /*if(myBody.velocity.magnitude>=sprintSpeed && myBody.velocity.y == 0)
         {
             //Stamina -= staminaOverTime * Time.deltaTime;
             Hunger -= hungerOverTime * Time.deltaTime;
@@ -158,6 +165,7 @@ public class SpielerScript : MonoBehaviour {
             print("Player has died");
         }*/
 
+
         updateUI();
 
     }
@@ -172,7 +180,7 @@ public class SpielerScript : MonoBehaviour {
 
         Hunger = Mathf.Clamp(Hunger, 0f, 100f);
         Thirst = Mathf.Clamp(Thirst, 0f, 100f);
-       
+
 
         Thirstbar.value = Thirst;
         Hungerbar.value = Hunger;
@@ -181,6 +189,7 @@ public class SpielerScript : MonoBehaviour {
 
 
     }
+}
 
    /* public void TakeDamage(float amt)
     {
@@ -188,23 +197,10 @@ public class SpielerScript : MonoBehaviour {
         updateUI();
     }*/
 
-}
 
-//https://www.youtube.com/watch?v=8lv8mCehpuE z
-=======
-
-            if (Input.GetKeyDown(KeyCode.Space) && isGrounded)                              //wenn die Leertaste gerdückt ist & Spieler auf dem Boden steht
-            {
-                GetComponent<Rigidbody>().AddForce(0, jumpStrength, 0); //Stärke der Kraft hinzufügen
-            }
-        }
-
-    }
 
     /*private void OnGUI()
     {
         GUI.Label(new Rect(10, 10, 100, 20), "Score:" + points);
     }
 */
-
->>>>>>> c8953cf2aad37b6d1a6242bb779f7cf1a35f31ea

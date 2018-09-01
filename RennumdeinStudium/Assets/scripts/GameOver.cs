@@ -1,36 +1,13 @@
-<<<<<<< HEAD
 
-﻿using System.Collections;
-=======
-/*using System.Collections;
->>>>>>> c8953cf2aad37b6d1a6242bb779f7cf1a35f31ea
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class GameOver : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        /*if (playerDead)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-        }*/
-<<<<<<< HEAD
-	}
-=======
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
->>>>>>> c8953cf2aad37b6d1a6242bb779f7cf1a35f31ea
 
+public class GameOver : MonoBehaviour
+{
 
     private static GameOver gameOver;
 
@@ -50,7 +27,8 @@ using UnityEngine.SceneManagement;
         }
     }
 
-    public void Dead() {
+    public void Dead()
+    {
 
         GameOverMenuUI.SetActive(true);
         Time.timeScale = 0.0f;
@@ -67,7 +45,3 @@ using UnityEngine.SceneManagement;
 }
 //dead = GameObject.Find("free_male_1").GetComponent<Kollision>();
 //dead.playerDead = true;
-<<<<<<< HEAD
-=======
-
->>>>>>> c8953cf2aad37b6d1a6242bb779f7cf1a35f31ea
