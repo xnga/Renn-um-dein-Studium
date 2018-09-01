@@ -10,7 +10,6 @@ public class SpawnCoins : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
         Spawn();
     }
 
