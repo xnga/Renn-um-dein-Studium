@@ -8,16 +8,24 @@ public class PathGenerator : MonoBehaviour {
     public GameObject pathPref;             //=>Prefab Objekt
     public int maxTiles = 3;                //maximale Anzahl
     private GameObject lastPathTile;
-    private List<GameObject> tiles;
+    private List<GameObject> tiles;         //declaration
+    private int pS;                         //previousStep
+
+    //public GameObject plane;
+    //public Transform planeParent;
+    //private GameObject lastPlane;
 
     [SerializeField]
     private int initialPathLength = 5;        //soviele werden von Anfang an generiert
 
     private void Start()
     {
-        tiles = new List<GameObject>();                     // tiles = Liste
+        tiles = new List<GameObject>();                     // tiles = Liste ->initialization
         lastPathTile = Instantiate(pathPref, pathParent);   // lastPathTile = Kopie von pathPref an Stelle von pathParent
         tiles.Add(lastPathTile);                            //lastPathTile wird der Liste hinzugefügt und ausgegeben
+
+        //lastPlane = Instantiate(plane, planeParent);
+        //tiles.Add(lastPlane);
 
         for (int i = 0; i < initialPathLength; i++)
         {
@@ -40,34 +48,62 @@ public class PathGenerator : MonoBehaviour {
     private void GeneratePathTile(int direction)
     {
         GameObject currentTile = null;
-        switch (direction)                  //switch case -> wo tile angehängt wird
+        //GameObject currentPlane = null;
+
+        if (direction == 0 && pS != 0)                  //if Anweisung -> wo tile angehängt wird
         {
-            case 0:
-                currentTile = Instantiate(pathPref, lastPathTile.transform.position, lastPathTile.transform.rotation);  //kopiert pathPref, an Pos lastPathTile, rotiert um lastPathTile
-                currentTile.transform.parent = pathParent;                                                              //Zuweisung der Position von pathParent
-                currentTile.transform.Rotate(0, -90, 0);                                                                //links
-                break;
+            currentTile = Instantiate(pathPref, lastPathTile.transform.position, lastPathTile.transform.rotation);  //kopiert pathPref, an Pos lastPathTile, rotiert um lastPathTile
+            //currentPlane = Instantiate(plane, lastPlane.transform.position, lastPlane.transform.rotation);
 
-            case 1:
-                currentTile = Instantiate(pathPref, lastPathTile.transform.position, lastPathTile.transform.rotation);
-                currentTile.transform.parent = pathParent;
-                currentTile.transform.Rotate(0, 0, 0);                                                                  //vorne
-                break;
+            currentTile.transform.parent = pathParent;                                                              //Zuweisung der Position von pathParent
+            //currentPlane.transform.parent = planeParent;
 
-            case 2:
-                currentTile = Instantiate(pathPref, lastPathTile.transform.position, lastPathTile.transform.rotation);
-                currentTile.transform.parent = pathParent;
-                currentTile.transform.Rotate(0, 90, 0);                                                                 //rechts
-                break;
+            currentTile.transform.Rotate(0, -90, 0);                                                                //links
+            //currentPlane.transform.Rotate(0, -90, 0);
 
-            default: break;
+            pS = direction;
         }
+
+        else if (direction == 1)
+        {
+            currentTile = Instantiate(pathPref, lastPathTile.transform.position, lastPathTile.transform.rotation);
+            //currentPlane = Instantiate(plane, lastPlane.transform.position, lastPlane.transform.rotation);
+
+            currentTile.transform.parent = pathParent;
+            //currentPlane.transform.parent = planeParent;
+
+            currentTile.transform.Rotate(0, 0, 0);                                                                  //vorne
+            //currentPlane.transform.Rotate(0, 0, 0);
+
+            pS = direction;
+        }
+
+        else if (direction == 2 && pS != 2)
+        {
+            currentTile = Instantiate(pathPref, lastPathTile.transform.position, lastPathTile.transform.rotation);
+            //currentPlane = Instantiate(plane, lastPlane.transform.position, lastPlane.transform.rotation);
+
+            currentTile.transform.parent = pathParent;
+            //currentPlane.transform.parent = planeParent;
+
+            currentTile.transform.Rotate(0, 90, 0);                                                                 //rechts
+            //currentPlane.transform.Rotate(0, 90, 0);
+
+            pS = direction;
+        }
+                
         currentTile.transform.Translate(0, 0, lastPathTile.transform.localScale.z);                                     //verschiebt currentTile um die Größe des lastPathTiles z
-        transform.position = currentTile.transform.position;                                                            
+        transform.position = currentTile.transform.position;
+
+        //currentPlane.transform.Translate(0, 0, lastPlane.transform.localScale.z);
+        //transform.position = currentPlane.transform.position;
 
 
         lastPathTile = currentTile;                                                                                     //lastPathTile ist nun currentTile
+        //lastPlane = currentPlane;
+
         tiles.Add(currentTile);                                                                                         //und currentTile wird der Liste hinzugefügt
+        //tiles.Add(currentPlane);
 
         if (tiles.Count >= maxTiles)                                                                                    //wenn Anzahl tiles größer ist als die angegebene maximale Anzahl
         {

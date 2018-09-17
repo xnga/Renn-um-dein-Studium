@@ -12,12 +12,13 @@ public class SpielerScript : MonoBehaviour
     public float turnSpeed = 20;
     public float jumpStrength = 5f;
     float horizontal;
+    float vertical;
 
     public bool isGrounded = true;
     private float distToGround = 0f;
 
 
-    Animator animator;
+    Animator anim;
 
     /* public float Health;
      private float healthOverTime;   
@@ -55,6 +56,7 @@ public class SpielerScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        anim = GetComponent<Animator>();
 
         myBody = GetComponent<Rigidbody>();
         Thirstbar.maxValue = Thirst;
@@ -65,7 +67,7 @@ public class SpielerScript : MonoBehaviour
         StaminaBar.maxValue = Stamina;
         */
 
-        updateUI();
+        //updateUI();
 
 
     }
@@ -75,6 +77,7 @@ public class SpielerScript : MonoBehaviour
     {
 
         horizontal = Input.GetAxis("Horizontal");
+        vertical = Input.GetAxis("Vertical");
 
         float _speed = speed * Time.deltaTime;
 
@@ -86,21 +89,19 @@ public class SpielerScript : MonoBehaviour
         if (Input.GetAxis("Vertical") < 0)
         {
             transform.position += transform.forward * _speed * Input.GetAxis("Vertical");
+          
         }
 
-        //if (Input.GetKey(KeyCode.W))
-        //{
-        //    //direction = Vector3.forward;
-        //    transform.position += transform.forward * _speed * Input.GetAxis("Vertical");
-        //    animator.SetTrigger("run");
+        //Animation abspielen, wenn vertical!=0
+        if( (vertical > 0) && vertical < 0)
+        {
+            anim.SetTrigger("run");
+        }
+        else
+        {
+            anim.ResetTrigger("run");
+        }
 
-        //}
-        //else if (Input.GetKey(KeyCode.S))
-        //{
-        //    //direction = Vector3.back;
-        //    transform.position += transform.forward * _speed * Input.GetAxis("Vertical");
-        //   // animator.SetTrigger("backwards-run");
-        //}
 
         if (Input.GetKey(KeyCode.D))
         {
@@ -114,6 +115,7 @@ public class SpielerScript : MonoBehaviour
 
     private void FixedUpdate()
     {
+
         distToGround = GetComponent<CapsuleCollider>().bounds.extents.y;                //Distanz y-Achse
         isGrounded = Physics.Raycast(transform.position, -Vector3.up, distToGround);    //Raycast misst die Distanz von der Pos. des Spielers zum Boden
 
@@ -121,10 +123,15 @@ public class SpielerScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)                              //wenn die Leertaste gerdückt ist & Spieler auf dem Boden steht
         {
-            GetComponent<Rigidbody>().AddForce(0, jumpStrength, 0); //Stärke der Kraft hinzufügen
+            GetComponent<Rigidbody>().AddForce(0, jumpStrength, 0);                     //Stärke der Kraft hinzufügen
+            anim.SetTrigger("Jump");
         }
 
         CalculateValues();
+
+        if (isGrounded == false){
+            anim.ResetTrigger("Jump");
+        }
     }
 
 
