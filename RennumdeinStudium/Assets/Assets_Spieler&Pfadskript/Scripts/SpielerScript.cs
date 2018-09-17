@@ -4,7 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 public class SpielerScript : MonoBehaviour
+=======
+public class SpielerScript : MonoBehaviour
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
 =======
 public class SpielerScript : MonoBehaviour
 >>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
@@ -55,17 +59,23 @@ public class SpielerScript : MonoBehaviour
     public float sprintSpeed = 5f;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     Rigidbody myBody;
 
 
     // Use this for initialization
     void Start()
 =======
+=======
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
     Rigidbody myBody;
 
 
     // Use this for initialization
     void Start()
+<<<<<<< HEAD
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
+=======
 >>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
     {
         anim = GetComponent<Animator>();
@@ -80,6 +90,7 @@ public class SpielerScript : MonoBehaviour
         */
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         //updateUI();
 
 
@@ -88,6 +99,8 @@ public class SpielerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
 =======
+=======
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
         //updateUI();
 
 
@@ -101,15 +114,19 @@ public class SpielerScript : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         float _speed = speed * Time.deltaTime;
 
 
 =======
+=======
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
 
         float _speed = speed * Time.deltaTime;
 
 
+<<<<<<< HEAD
 >>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
         if (Input.GetAxis("Vertical") > 0)
         {
@@ -123,12 +140,24 @@ public class SpielerScript : MonoBehaviour
           
         }
 >>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
+=======
+        if (Input.GetAxis("Vertical") > 0)
+        {
+            transform.position += transform.forward * _speed * Input.GetAxis("Vertical");
+        }
+        if (Input.GetAxis("Vertical") < 0)
+        {
+            transform.position += transform.forward * _speed * Input.GetAxis("Vertical");
+          
+        }
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
 
         //Animation abspielen, wenn vertical!=0
         if( (vertical > 0) && vertical < 0)
         {
             anim.SetTrigger("run");
         }
+<<<<<<< HEAD
 <<<<<<< HEAD
 
         //Animation abspielen, wenn vertical!=0
@@ -140,6 +169,10 @@ public class SpielerScript : MonoBehaviour
 >>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
         else
         {
+=======
+        else
+        {
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
             anim.ResetTrigger("run");
         }
 
@@ -174,6 +207,9 @@ public class SpielerScript : MonoBehaviour
 
 
 
+<<<<<<< HEAD
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
+=======
 >>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)                              //wenn die Leertaste gerdückt ist & Spieler auf dem Boden steht
         {
@@ -184,10 +220,16 @@ public class SpielerScript : MonoBehaviour
         CalculateValues();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (isGrounded == false)
         {
             anim.ResetTrigger("Jump");
         }
+=======
+        if (isGrounded == false){
+            anim.ResetTrigger("Jump");
+        }
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
 =======
         if (isGrounded == false){
             anim.ResetTrigger("Jump");
@@ -207,8 +249,13 @@ public class SpielerScript : MonoBehaviour
     {
         Hunger -= hungerOverTime * Time.deltaTime;
 <<<<<<< HEAD
+<<<<<<< HEAD
         Thirst -= thirstOverTime * Time.deltaTime;
 
+=======
+        Thirst -= thirstOverTime * Time.deltaTime;
+
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
 =======
         Thirst -= thirstOverTime * Time.deltaTime;
 
@@ -220,8 +267,13 @@ public class SpielerScript : MonoBehaviour
 
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
         */
 
+=======
+        */
+
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
 =======
         */
 
@@ -242,11 +294,14 @@ public class SpielerScript : MonoBehaviour
         {
             print("Player has died");
 <<<<<<< HEAD
+<<<<<<< HEAD
         }*/
 
 
        // updateUI();
 =======
+=======
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
         }*/
 
 
@@ -264,6 +319,7 @@ public class SpielerScript : MonoBehaviour
         Stamina = Mathf.Clamp(Health, 0f, 100f); */
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         //Hunger = Mathf.Clamp(Hunger, 0f, 100f);
         //Thirst = Mathf.Clamp(Thirst, 0f, 100f);
 
@@ -271,6 +327,8 @@ public class SpielerScript : MonoBehaviour
         //Thirstbar.value = Thirst;
         //Hungerbar.value = Hunger;
 =======
+=======
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
         Hunger = Mathf.Clamp(Hunger, 0f, 100f);
         Thirst = Mathf.Clamp(Thirst, 0f, 100f);
 
@@ -318,4 +376,7 @@ public class SpielerScript : MonoBehaviour
     }
 */
 //
+<<<<<<< HEAD
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
+=======
 >>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524

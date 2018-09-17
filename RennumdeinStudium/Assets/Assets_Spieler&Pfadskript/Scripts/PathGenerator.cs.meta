@@ -4,7 +4,13 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
   defaultReferences: []
+=======
+  defaultReferences:
+  - pathParent: {instanceID: 0}
+  - pathPref: {instanceID: 0}
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
 =======
   defaultReferences:
   - pathParent: {instanceID: 0}
