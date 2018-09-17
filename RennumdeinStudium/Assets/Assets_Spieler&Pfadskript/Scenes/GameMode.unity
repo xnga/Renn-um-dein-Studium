@@ -217,7 +217,11 @@ MonoBehaviour:
   target: {fileID: 0}
   smoothSpeed: 0.1
 <<<<<<< HEAD
+<<<<<<< HEAD
   offset: {x: 0, y: 0, z: 0}
+=======
+  offset: {x: 0, y: 7.64, z: -20.25}
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
 =======
   offset: {x: 0, y: 7.64, z: -20.25}
 >>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
@@ -362,13 +366,19 @@ MonoBehaviour:
   pathParent: {fileID: 1504291657}
   pathPref: {fileID: 1538270790329828, guid: 010047dbce21b4f76a0d55a806c112c3, type: 2}
 <<<<<<< HEAD
+<<<<<<< HEAD
   maxTiles: 3
   initialPathLength: 5
 =======
+=======
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
   maxTiles: 10
   plane: {fileID: 1239340570773178, guid: 76aed8f9b4b7448d9b5d437c60cc198f, type: 2}
   planeParent: {fileID: 1478721775}
   initialPathLength: 8
+<<<<<<< HEAD
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
+=======
 >>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
 --- !u!1 &867222215 stripped
 GameObject:
@@ -456,6 +466,7 @@ CapsuleCollider:
   m_Height: 1.2106962
   m_Direction: 1
   m_Center: {x: 0.008223574, y: 0.6, z: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!1 &938871427
 GameObject:
@@ -562,6 +573,8 @@ MonoBehaviour:
   spawner: {fileID: 0}
   spawnerPos: {x: 0, y: 0, z: 0}
   spawnPlace: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
 =======
 >>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
 --- !u!1 &960095579 stripped
@@ -755,7 +768,10 @@ Transform:
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
 --- !u!1 &1478721773
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,6 +800,9 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
+=======
 >>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
 --- !u!1 &1504291656
 GameObject:
@@ -812,7 +831,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 7
+=======
+  m_RootOrder: 6
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
 =======
   m_RootOrder: 6
 >>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
