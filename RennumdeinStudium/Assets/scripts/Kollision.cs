@@ -53,4 +53,5 @@ public class Kollision : MonoBehaviour
         GameOver.Instance.Dead();
 
     }
+
 }
