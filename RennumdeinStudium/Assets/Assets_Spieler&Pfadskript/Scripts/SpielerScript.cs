@@ -3,24 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+<<<<<<< HEAD
 public class SpielerScript : MonoBehaviour
+=======
+public class SpielerScript : MonoBehaviour
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
 {
     public int points = 0;
 
-<<<<<<< HEAD
-=======
 
->>>>>>> eb3e362a2884fa08e7be781618c77451e9227d87
     public float speed = 10;
     public float turnSpeed = 20;
     public float jumpStrength = 5f;
     float horizontal;
+    float vertical;
 
     public bool isGrounded = true;
     private float distToGround = 0f;
 
 
-    Animator animator;
+    Animator anim;
 
     /* public float Health;
      private float healthOverTime;   
@@ -54,20 +56,19 @@ public class SpielerScript : MonoBehaviour
 
 <<<<<<< HEAD
     Rigidbody myBody;
-    private float direction;
-    private float move;
 
 
     // Use this for initialization
-    void Start () {
+    void Start()
 =======
     Rigidbody myBody;
 
 
     // Use this for initialization
     void Start()
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
     {
->>>>>>> eb3e362a2884fa08e7be781618c77451e9227d87
+        anim = GetComponent<Animator>();
 
         myBody = GetComponent<Rigidbody>();
         Thirstbar.maxValue = Thirst;
@@ -78,20 +79,38 @@ public class SpielerScript : MonoBehaviour
         StaminaBar.maxValue = Stamina;
         */
 
-        updateUI();
+<<<<<<< HEAD
+        //updateUI();
 
 
     }
 
     // Update is called once per frame
     void Update()
+=======
+        //updateUI();
+
+
+    }
+
+    // Update is called once per frame
+    void Update()
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
     {
 
         horizontal = Input.GetAxis("Horizontal");
+        vertical = Input.GetAxis("Vertical");
+<<<<<<< HEAD
 
         float _speed = speed * Time.deltaTime;
 
 
+=======
+
+        float _speed = speed * Time.deltaTime;
+
+
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
         if (Input.GetAxis("Vertical") > 0)
         {
             transform.position += transform.forward * _speed * Input.GetAxis("Vertical");
@@ -99,21 +118,31 @@ public class SpielerScript : MonoBehaviour
         if (Input.GetAxis("Vertical") < 0)
         {
             transform.position += transform.forward * _speed * Input.GetAxis("Vertical");
+<<<<<<< HEAD
+=======
+          
+        }
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
+
+        //Animation abspielen, wenn vertical!=0
+        if( (vertical > 0) && vertical < 0)
+        {
+            anim.SetTrigger("run");
+        }
+<<<<<<< HEAD
+
+        //Animation abspielen, wenn vertical!=0
+        if ((vertical > 0) && vertical < 0)
+        {
+            anim.SetTrigger("run");
+        }
+=======
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
+        else
+        {
+            anim.ResetTrigger("run");
         }
 
-        //if (Input.GetKey(KeyCode.W))
-        //{
-        //    //direction = Vector3.forward;
-        //    transform.position += transform.forward * _speed * Input.GetAxis("Vertical");
-        //    animator.SetTrigger("run");
-
-        //}
-        //else if (Input.GetKey(KeyCode.S))
-        //{
-        //    //direction = Vector3.back;
-        //    transform.position += transform.forward * _speed * Input.GetAxis("Vertical");
-        //   // animator.SetTrigger("backwards-run");
-        //}
 
         if (Input.GetKey(KeyCode.D))
         {
@@ -123,31 +152,47 @@ public class SpielerScript : MonoBehaviour
         {
             transform.Rotate(0, horizontal * turnSpeed * Time.deltaTime, 0);
         }
+<<<<<<< HEAD
     }
 
     private void FixedUpdate()
     {
+
         distToGround = GetComponent<CapsuleCollider>().bounds.extents.y;                //Distanz y-Achse
         isGrounded = Physics.Raycast(transform.position, -Vector3.up, distToGround);    //Raycast misst die Distanz von der Pos. des Spielers zum Boden
 
 
 
+=======
+    }
+
+    private void FixedUpdate()
+    {
+
+        distToGround = GetComponent<CapsuleCollider>().bounds.extents.y;                //Distanz y-Achse
+        isGrounded = Physics.Raycast(transform.position, -Vector3.up, distToGround);    //Raycast misst die Distanz von der Pos. des Spielers zum Boden
+
+
+
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)                              //wenn die Leertaste gerdückt ist & Spieler auf dem Boden steht
         {
-<<<<<<< HEAD
-            distToGround = GetComponent<CapsuleCollider>().bounds.extents.y;                //Distanz y-Achse
-            isGrounded = Physics.Raycast(transform.position, -Vector3.up, distToGround);    //Raycast misst die Distanz von der Pos. des Spielers zum Boden
-
-
-
-        transform.Translate(direction * move);
-
-=======
-            GetComponent<Rigidbody>().AddForce(0, jumpStrength, 0); //Stärke der Kraft hinzufügen
+            GetComponent<Rigidbody>().AddForce(0, jumpStrength, 0);                     //Stärke der Kraft hinzufügen
+            anim.SetTrigger("Jump");
         }
->>>>>>> eb3e362a2884fa08e7be781618c77451e9227d87
 
         CalculateValues();
+
+<<<<<<< HEAD
+        if (isGrounded == false)
+        {
+            anim.ResetTrigger("Jump");
+        }
+=======
+        if (isGrounded == false){
+            anim.ResetTrigger("Jump");
+        }
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
     }
 
 
@@ -161,16 +206,26 @@ public class SpielerScript : MonoBehaviour
     private void CalculateValues()
     {
         Hunger -= hungerOverTime * Time.deltaTime;
+<<<<<<< HEAD
         Thirst -= thirstOverTime * Time.deltaTime;
 
+=======
+        Thirst -= thirstOverTime * Time.deltaTime;
+
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
         /*if(Hunger<= minAmount || Thirst <= minAmount)
         {
             Health -= healthOverTime * Time.deltaTime;
             Stamina -= staminaOverTime * Time.deltaTime;
 
         }
+<<<<<<< HEAD
         */
 
+=======
+        */
+
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
         /*if(myBody.velocity.magnitude>=sprintSpeed && myBody.velocity.y == 0)
         {
             //Stamina -= staminaOverTime * Time.deltaTime;
@@ -186,31 +241,66 @@ public class SpielerScript : MonoBehaviour
         /*if (Health <= 0)
         {
             print("Player has died");
+<<<<<<< HEAD
+        }*/
+
+
+       // updateUI();
+=======
         }*/
 
 
         updateUI();
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
 
     }
 
-    private void updateUI()
-    {
+   // private void updateUI()
+    //{
         /*Thirstbar.maxValue = Thirst;
         Hungerbar.maxValue = Hunger;
 
         Health = Mathf.Clamp(Health, 0f, 100f);
         Stamina = Mathf.Clamp(Health, 0f, 100f); */
 
+<<<<<<< HEAD
+        //Hunger = Mathf.Clamp(Hunger, 0f, 100f);
+        //Thirst = Mathf.Clamp(Thirst, 0f, 100f);
+
+
+        //Thirstbar.value = Thirst;
+        //Hungerbar.value = Hunger;
+=======
         Hunger = Mathf.Clamp(Hunger, 0f, 100f);
         Thirst = Mathf.Clamp(Thirst, 0f, 100f);
 
 
         Thirstbar.value = Thirst;
         Hungerbar.value = Hunger;
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
         /*HealthBar.value = Health;
         StaminaBar.value = Stamina;*/
 
 
+<<<<<<< HEAD
+    //} 
+}
+
+/* public void TakeDamage(float amt)
+ {
+     Health -= amt;
+     updateUI();
+ }*/
+
+
+
+/*private void OnGUI()
+{
+    GUI.Label(new Rect(10, 10, 100, 20), "Score:" + points);
+}
+*/
+//
+=======
     }
 }
 
@@ -221,26 +311,11 @@ public class SpielerScript : MonoBehaviour
     }*/
 
 
-<<<<<<< HEAD
-//https://www.youtube.com/watch?v=8lv8mCehpuE z
-/*
-
-            if (Input.GetKeyDown(KeyCode.Space) && isGrounded)                              //wenn die Leertaste gerdückt ist & Spieler auf dem Boden steht
-            {
-                GetComponent<Rigidbody>().AddForce(0, jumpStrength, 0); //Stärke der Kraft hinzufügen
-            }
-        }
-
-    }
-=======
->>>>>>> eb3e362a2884fa08e7be781618c77451e9227d87
 
     /*private void OnGUI()
     {
         GUI.Label(new Rect(10, 10, 100, 20), "Score:" + points);
     }
 */
-<<<<<<< HEAD
-
-=======
->>>>>>> eb3e362a2884fa08e7be781618c77451e9227d87
+//
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524

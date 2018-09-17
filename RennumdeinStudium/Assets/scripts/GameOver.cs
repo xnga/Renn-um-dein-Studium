@@ -6,23 +6,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameOver : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-
-    // Update is called once per frame
-    void Update()
-    {
-        /*if (playerDead)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-        }*/
-
-    }
-
 =======
 
 
@@ -31,7 +14,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
->>>>>>> eb3e362a2884fa08e7be781618c77451e9227d87
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
 
 public class GameOver : MonoBehaviour
 {
