@@ -6,7 +6,12 @@ using UnityEngine.UI;
 public class SpielerScript : MonoBehaviour
 {
     public int points = 0;
-
+    public int maxGesundheit; // Wie viel Health der Player MAXIMUM hat
+    public Text curHealthLabel; // Einfügen von Health TXT
+    private int currentHealth; // 100%
+    public Image EndeScreen;
+    private bool isDead;
+  
 
     public float speed = 10;
     public float turnSpeed = 20;
@@ -24,10 +29,42 @@ public class SpielerScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        currentHealth = maxGesundheit; //Fängt bei MAX an 
+        isDead = false; // wenn bool falsch ist, dann wird GUI geaupdatet, also wird die Zahl runter gehen
+        UpdateGUI();
+
+
+
         anim = GetComponent<Animator>();
 
         myBody = GetComponent<Rigidbody>();
 
+    }
+
+
+    void UpdateGUI()
+    {
+        curHealthLabel.text = currentHealth.ToString(); // hier wird das mit dem Runterzählen durchgeführt
+        EndeScreen.gameObject.SetActive(isDead); //SetActive setzt das Image dann ein
+    }
+
+    public void AlterHealth(int amt)
+    {
+        currentHealth += amt;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxGesundheit); //(Wert den wir einschränken wollen, minimun Wert, maximum Wert)
+        CheckDead();
+        UpdateGUI();
+    }
+    // Update is called once per frame
+    private void CheckDead()
+    {
+        if (isDead)
+            return; // isDead ist ein bool, das false ist; spricht: wenn das false ist, wird es returnt
+        if (currentHealth == 0) // wenn das Minimum erreicht wird, also true ist, dann soll im Player Script das Image erscheinen 
+        {
+            isDead = true;
+            GetComponent<SpielerScript>().enabled = false;
+        }
     }
 
     // Update is called once per frame
