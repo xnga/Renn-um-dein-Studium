@@ -89,11 +89,11 @@ public class SpielerScript : MonoBehaviour
         if (Input.GetAxis("Vertical") < 0)
         {
             transform.position += transform.forward * _speed * Input.GetAxis("Vertical");
-          
+
         }
 
         //Animation abspielen, wenn vertical!=0
-        if( (vertical > 0) && vertical < 0)
+        if ((vertical > 0) && vertical < 0)
         {
             anim.SetTrigger("run");
         }
@@ -129,7 +129,8 @@ public class SpielerScript : MonoBehaviour
 
         CalculateValues();
 
-        if (isGrounded == false){
+        if (isGrounded == false)
+        {
             anim.ResetTrigger("Jump");
         }
     }
@@ -198,16 +199,16 @@ public class SpielerScript : MonoBehaviour
     }
 }
 
-   /* public void TakeDamage(float amt)
-    {
-        Health -= amt;
-        updateUI();
-    }*/
+/* public void TakeDamage(float amt)
+ {
+     Health -= amt;
+     updateUI();
+ }*/
 
 
 
-    /*private void OnGUI()
-    {
-        GUI.Label(new Rect(10, 10, 100, 20), "Score:" + points);
-    }
+/*private void OnGUI()
+{
+    GUI.Label(new Rect(10, 10, 100, 20), "Score:" + points);
+}
 */

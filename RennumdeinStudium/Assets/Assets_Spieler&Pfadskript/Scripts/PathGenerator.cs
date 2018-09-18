@@ -1,8 +1,9 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PathGenerator : MonoBehaviour {
+public class PathGenerator : MonoBehaviour
+{
 
     public Transform pathParent;            //pathParent besitzt nur die Position
     public GameObject pathPref;             //=>Prefab Objekt
@@ -98,7 +99,7 @@ public class PathGenerator : MonoBehaviour {
 
             pS = direction;
         }
-                
+
         currentTile.transform.Translate(0, 0, lastPathTile.transform.localScale.z);                                     //verschiebt currentTile um die Größe des lastPathTiles z
         transform.position = currentTile.transform.position;
 
@@ -118,7 +119,7 @@ public class PathGenerator : MonoBehaviour {
 
         if (tiles.Count >= maxTiles)                                                                                    //wenn Anzahl tiles größer ist als die angegebene maximale Anzahl
         {
-            GameObject killTile = tiles[0];                                                                             
+            GameObject killTile = tiles[0];
             tiles.RemoveAt(0);                                                                                         //die Verlinkung zum 0 Objekt wird gelöscht->Liste verschiebt sich
             Destroy(killTile);                                                                                         //und Objekt wird gelöscht
         }
