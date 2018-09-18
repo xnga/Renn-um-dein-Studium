@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: b2410546810a249fabf372b8c646de3b
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: rock_1
     100002: rock_1_base_tex
@@ -164,6 +164,7 @@ ModelImporter:
     4300058: rock_1_basemesh
     7400000: Default Take
     9500000: //RootNode
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -215,6 +216,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
