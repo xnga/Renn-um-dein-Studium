@@ -223,6 +223,9 @@ MonoBehaviour:
   offset: {x: 0, y: 8, z: -20}
 =======
 <<<<<<< HEAD
+  offset: {x: 0, y: 8, z: -20}
+=======
+<<<<<<< HEAD
 <<<<<<< HEAD
   offset: {x: 0, y: 0, z: 0}
 =======
@@ -233,6 +236,7 @@ MonoBehaviour:
 >>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
 >>>>>>> e0a89eaa7d0fe51cd5c82b35b788d71fdc4041b7
 >>>>>>> c54303310836d4c978cec861379b2e28638afcda
+>>>>>>> 6470da32d908394847a19176ea4402f165d01600
 --- !u!20 &282840813
 Camera:
   m_ObjectHideFlags: 0
