@@ -1,10 +1,26 @@
 
+<<<<<<< HEAD
+
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+=======
+=======
+
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
+
 
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+<<<<<<< HEAD
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
+=======
+>>>>>>> de1106b8314a09cdfe7d4e361536edfe9cc87524
 
 public class GameOver : MonoBehaviour
 {
