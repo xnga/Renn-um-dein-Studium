@@ -105,10 +105,8 @@ public class PathGenerator : MonoBehaviour {
         //currentPlane.transform.Translate(0, 0, lastPlane.transform.localScale.z);
         //transform.position = currentPlane.transform.position;
 
-        //spawnerPos = new Vector3(currentTile.transform.position.x, currentTile.transform.position.y, currentTile.transform.position.z);
-        //Instantiate(spawner, currentTile.transform.position, Quaternion.identity);
-
-        //HindernisSpawner.Instance.Start();
+        Instantiate(spawner, currentTile.transform.position, Quaternion.identity);                                      // Objekte werden gespawnt
+        HindernisSpawner.Instance.Start();
 
         lastPathTile = currentTile;                                                                                     //lastPathTile ist nun currentTile
         //lastPlane = currentPlane;
