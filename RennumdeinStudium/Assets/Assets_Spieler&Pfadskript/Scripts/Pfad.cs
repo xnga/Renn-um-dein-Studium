@@ -42,7 +42,7 @@ public class Pfad : MonoBehaviour
         {
             makePath();
 
-            HindernisSpawner.Instance.SpawnHindernisse(spawnerPos);
+            HindernisSpawner.Instance.SpawnHindernisse();
         }
         {
             makePath();
@@ -83,7 +83,7 @@ public class Pfad : MonoBehaviour
 
         {
 
-            //int randomInd = Random.Range(0, 2);     //Element 2 ist nicht mit enthalten          currentPath = (GameObject)Instantiate(pathPrefabs[randomInd], currentPath.transform.GetChild(0).transform.GetChild(randomInd).position, Quaternion.identity);    //kopiert das Original und gibt die Kopie zurük && quaternion=natüliche Rot.          if (randomInd == 0)
+            //int randomInd = Random.Range(0, 2);     //Element 2 ist nicht mit enthalten          /*if (randomInd == 0)
             {
                 spawnerPos = new Vector3(currentPath.transform.position.x - 15, currentPath.transform.position.y, currentPath.transform.position.z);
                 Instantiate(spawner, spawnerPos, Quaternion.identity);
@@ -96,7 +96,10 @@ public class Pfad : MonoBehaviour
                 Instantiate(spawner, spawnerPos, Quaternion.identity);
                 spawnPlace = new Vector3(currentPath.transform.position.x, currentPath.transform.position.y, currentPath.transform.position.z - 50);
                 HindernisSpawner.Instance.SpawnHindernisse(spawnPlace);
-            }
+            }*/
+
+
+
             //spawnerPos = new Vector3(currentPath.transform.position.x, currentPath.transform.position.y, currentPath.transform.position.z );
             //Instantiate(spawner, currentPath.transform.position, Quaternion.identity);
 

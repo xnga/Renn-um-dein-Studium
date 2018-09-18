@@ -11,6 +11,9 @@ public class PathGenerator : MonoBehaviour {
     private List<GameObject> tiles;         //declaration
     private int pS;                         //previousStep
 
+    public Vector3 spawnerPos;
+    public GameObject spawner;
+
     //public GameObject plane;
     //public Transform planeParent;
     //private GameObject lastPlane;
@@ -61,6 +64,7 @@ public class PathGenerator : MonoBehaviour {
             currentTile.transform.Rotate(0, -90, 0);                                                                //links
             //currentPlane.transform.Rotate(0, -90, 0);
 
+
             pS = direction;
         }
 
@@ -74,6 +78,7 @@ public class PathGenerator : MonoBehaviour {
 
             currentTile.transform.Rotate(0, 0, 0);                                                                  //vorne
             //currentPlane.transform.Rotate(0, 0, 0);
+
 
             pS = direction;
         }
@@ -89,6 +94,8 @@ public class PathGenerator : MonoBehaviour {
             currentTile.transform.Rotate(0, 90, 0);                                                                 //rechts
             //currentPlane.transform.Rotate(0, 90, 0);
 
+
+
             pS = direction;
         }
                 
@@ -98,6 +105,10 @@ public class PathGenerator : MonoBehaviour {
         //currentPlane.transform.Translate(0, 0, lastPlane.transform.localScale.z);
         //transform.position = currentPlane.transform.position;
 
+        //spawnerPos = new Vector3(currentTile.transform.position.x, currentTile.transform.position.y, currentTile.transform.position.z);
+        //Instantiate(spawner, currentTile.transform.position, Quaternion.identity);
+
+        //HindernisSpawner.Instance.Start();
 
         lastPathTile = currentTile;                                                                                     //lastPathTile ist nun currentTile
         //lastPlane = currentPlane;
