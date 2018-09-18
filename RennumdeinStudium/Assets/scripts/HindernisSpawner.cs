@@ -36,7 +36,7 @@ public class HindernisSpawner : MonoBehaviour
 
     public void Update()
     {
-
+        
     }
 
     public void SpawnHindernisse()
