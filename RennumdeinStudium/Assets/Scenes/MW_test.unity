@@ -214,8 +214,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89abb1e251c3e4eec973d49eff6fdb69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 867222217}
-  offsetPosition: {x: 0, y: 5, z: -8}
+  player: {fileID: 867222217}
+  offsetPosition: {x: 0, y: 2, z: -5}
   offsetPositionSpace: 1
   lookAt: 1
 --- !u!20 &282840813
@@ -261,7 +261,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 282840810}
   m_LocalRotation: {x: 0.061658274, y: 0, z: 0, w: 0.9980973}
-  m_LocalPosition: {x: 0, y: 9.62, z: -12.62}
+  m_LocalPosition: {x: 0, y: 6.4, z: -10.17}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -359,51 +359,8 @@ MonoBehaviour:
   pathParent: {fileID: 1504291657}
   pathPref: {fileID: 1538270790329828, guid: 010047dbce21b4f76a0d55a806c112c3, type: 2}
   maxTiles: 10
-  spawnerPos: {x: 0, y: 0, z: 0}
   spawner: {fileID: 1872155188064148, guid: a8712c0491a5a4109bd2a8b9e1a42ba6, type: 2}
   initialPathLength: 8
---- !u!1001 &671463868
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4064612657367698, guid: a8712c0491a5a4109bd2a8b9e1a42ba6, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4064612657367698, guid: a8712c0491a5a4109bd2a8b9e1a42ba6, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4064612657367698, guid: a8712c0491a5a4109bd2a8b9e1a42ba6, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4064612657367698, guid: a8712c0491a5a4109bd2a8b9e1a42ba6, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4064612657367698, guid: a8712c0491a5a4109bd2a8b9e1a42ba6, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4064612657367698, guid: a8712c0491a5a4109bd2a8b9e1a42ba6, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4064612657367698, guid: a8712c0491a5a4109bd2a8b9e1a42ba6, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4064612657367698, guid: a8712c0491a5a4109bd2a8b9e1a42ba6, type: 2}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: a8712c0491a5a4109bd2a8b9e1a42ba6, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &867222215 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100078, guid: 461413943bab6ef40aa2a33f18380180, type: 3}
@@ -442,16 +399,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 0
+  maxGesundheit: 0
+  curHealthLabel: {fileID: 0}
+  EndeScreen: {fileID: 0}
   speed: 15
   turnSpeed: 60
   jumpStrength: 500
   isGrounded: 1
-  Hunger: 0
-  hungerOverTime: 0
-  Thirst: 0
-  thirstOverTime: 0
-  Hungerbar: {fileID: 0}
-  Thirstbar: {fileID: 0}
   minAmount: 5
   sprintSpeed: 5
 --- !u!54 &867222219

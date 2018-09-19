@@ -214,9 +214,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89abb1e251c3e4eec973d49eff6fdb69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 867222217}
-  smoothSpeed: 0.1
-  offset: {x: 0, y: 7.64, z: -20.25}
+  player: {fileID: 867222217}
+  offsetPosition: {x: 0, y: 2, z: -5}
+  offsetPositionSpace: 1
+  lookAt: 1
 --- !u!20 &282840813
 Camera:
   m_ObjectHideFlags: 0
@@ -358,7 +359,6 @@ MonoBehaviour:
   pathParent: {fileID: 1504291657}
   pathPref: {fileID: 1538270790329828, guid: 010047dbce21b4f76a0d55a806c112c3, type: 2}
   maxTiles: 10
-  spawnerPos: {x: 0, y: 0, z: 0}
   spawner: {fileID: 0}
   initialPathLength: 8
 --- !u!1 &867222215 stripped
@@ -399,16 +399,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 0
+  maxGesundheit: 0
+  curHealthLabel: {fileID: 0}
+  EndeScreen: {fileID: 0}
   speed: 15
   turnSpeed: 60
   jumpStrength: 500
   isGrounded: 1
-  Hunger: 0
-  hungerOverTime: 0
-  Thirst: 0
-  thirstOverTime: 0
-  Hungerbar: {fileID: 0}
-  Thirstbar: {fileID: 0}
   minAmount: 5
   sprintSpeed: 5
 --- !u!54 &867222219
