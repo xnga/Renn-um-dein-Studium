@@ -43,5 +43,3 @@ public class GameOver : MonoBehaviour
 
     }
 }
-//dead = GameObject.Find("free_male_1").GetComponent<Kollision>();
-//dead.playerDead = true;

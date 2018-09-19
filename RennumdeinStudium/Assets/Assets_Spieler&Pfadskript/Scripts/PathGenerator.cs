@@ -11,7 +11,6 @@ public class PathGenerator : MonoBehaviour {
     private List<GameObject> tiles;         //declaration
     private int pS;                         //previousStep
 
-    public Vector3 spawnerPos;
     public GameObject spawner;
 
     //public GameObject plane;
@@ -64,7 +63,6 @@ public class PathGenerator : MonoBehaviour {
             currentTile.transform.Rotate(0, -90, 0);                                                                //links
             //currentPlane.transform.Rotate(0, -90, 0);
 
-
             pS = direction;
         }
 
@@ -78,7 +76,6 @@ public class PathGenerator : MonoBehaviour {
 
             currentTile.transform.Rotate(0, 0, 0);                                                                  //vorne
             //currentPlane.transform.Rotate(0, 0, 0);
-
 
             pS = direction;
         }
@@ -94,10 +91,9 @@ public class PathGenerator : MonoBehaviour {
             currentTile.transform.Rotate(0, 90, 0);                                                                 //rechts
             //currentPlane.transform.Rotate(0, 90, 0);
 
-
-
             pS = direction;
         }
+
                 
         currentTile.transform.Translate(0, 0, lastPathTile.transform.localScale.z);                                     //verschiebt currentTile um die Größe des lastPathTiles z
         transform.position = currentTile.transform.position;
@@ -105,20 +101,22 @@ public class PathGenerator : MonoBehaviour {
         //currentPlane.transform.Translate(0, 0, lastPlane.transform.localScale.z);
         //transform.position = currentPlane.transform.position;
 
-        Instantiate(spawner, currentTile.transform.position, Quaternion.identity);                                      // Objekte werden gespawnt
-        HindernisSpawner.Instance.Start();
-
         lastPathTile = currentTile;                                                                                     //lastPathTile ist nun currentTile
         //lastPlane = currentPlane;
 
         tiles.Add(currentTile);                                                                                         //und currentTile wird der Liste hinzugefügt
         //tiles.Add(currentPlane);
 
+        Instantiate(spawner, currentTile.transform.position, Quaternion.identity);                                      // Objekte werden gespawnt
+        HindernisSpawner.Instance.SpawnHindernisse();
+
+
         if (tiles.Count >= maxTiles)                                                                                    //wenn Anzahl tiles größer ist als die angegebene maximale Anzahl
         {
             GameObject killTile = tiles[0];                                                                             
             tiles.RemoveAt(0);                                                                                         //die Verlinkung zum 0 Objekt wird gelöscht->Liste verschiebt sich
             Destroy(killTile);                                                                                         //und Objekt wird gelöscht
+
         }
 
 

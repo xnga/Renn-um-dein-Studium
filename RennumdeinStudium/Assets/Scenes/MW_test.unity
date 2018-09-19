@@ -214,11 +214,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89abb1e251c3e4eec973d49eff6fdb69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerTransform: {fileID: 867222217}
-  SmoothFactor: 0.29
-  LookAtPlayer: 0
-  RotateAroundPlayer: 1
-  RotationSpeed: 0.5
+  target: {fileID: 867222217}
+  offsetPosition: {x: 0, y: 5, z: -8}
+  offsetPositionSpace: 1
+  lookAt: 1
 --- !u!20 &282840813
 Camera:
   m_ObjectHideFlags: 0

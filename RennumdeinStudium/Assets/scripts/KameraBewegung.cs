@@ -1,45 +1,50 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-//Tutorial: https://www.youtube.com/watch?v=MFQhpwc6cKE
+//tutorial: https://www.youtube.com/watch?v=hRRqxrWQJQg
 
-public class KameraBewegung : MonoBehaviour {
+public class KameraBewegung : MonoBehaviour
+{
 
-    public Transform PlayerTransform;
+    [SerializeField]
+    private Transform player;
 
-    private Vector3 CameraOffset;
+    [SerializeField]
+    private Vector3 offsetPosition;
 
-    [Range(0.01f, 1.0f)]
-    public float SmoothFactor = 0.5f;
+    [SerializeField]
+    private Space offsetPositionSpace = Space.Self;
 
-    public bool LookAtPlayer = false;
+    [SerializeField]
+    private bool lookAt = true;
 
-    public bool RotateAroundPlayer = true;
-
-    public float RotationSpeed = 0.5f;
-
-    void Start()
+    private void LateUpdate()
     {
-        CameraOffset = transform.position - PlayerTransform.position; 
+        Neuladen();
     }
 
-    // LateUpdater nach Updates aufgerufen
-    void LateUpdate()
+    public void Neuladen()
     {
-        if (RotateAroundPlayer) {
-            Quaternion camTurnAngle = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * RotationSpeed, Vector3.up);
 
-            CameraOffset = camTurnAngle * CameraOffset;
+        // Position bestimmen
+        if (offsetPositionSpace == Space.Self)
+        {
+            transform.position = player.TransformPoint(offsetPosition);
+        }
+        else
+        {
+            transform.position = player.position + offsetPosition;
         }
 
-        Vector3 newPos = PlayerTransform.position + CameraOffset;
-
-        transform.position = Vector3.Slerp(transform.position, newPos, SmoothFactor);
-
-        if (LookAtPlayer || RotateAroundPlayer ) {
-            transform.LookAt(PlayerTransform);
+        // Rotation bestimmen
+        if (lookAt)
+        {
+            transform.LookAt(player);
+        }
+        else
+        {
+            transform.rotation = player.rotation;
         }
     }
-
-
-
 }
