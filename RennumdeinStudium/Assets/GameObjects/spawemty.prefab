@@ -52,6 +52,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hindernisse:
-  - {fileID: 1277654602607758, guid: 96de46a3b7fa1d741803958b89920610, type: 2}
+  - {fileID: 1133825301667874, guid: 467b79d087749664f87d7740bbd5f52a, type: 2}
   - {fileID: 1116214393839682, guid: 96234994e565c0e4cb0c7213bd9603f8, type: 2}
   spawnwerte: {x: 0, y: 0, z: 0}

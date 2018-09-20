@@ -49,7 +49,7 @@ public class spawemty: MonoBehaviour
 
             int randomHindernis = Random.Range(0, 2); // Welches Object gespawnt? arrayplaetze, welches Object gepickt wird
 
-            Vector3 spawnPosition = new Vector3(Random.Range(spawnwerte.x + 13f, spawnwerte.x - 13f), spawnwerte.y + 3.0f, Random.Range(spawnwerte.z + 13f, spawnwerte.z - 13f)); // Wo Object gespawnt?
+            Vector3 spawnPosition = new Vector3(Random.Range(spawnwerte.x + 13f, spawnwerte.x - 13f), spawnwerte.y + 2.0f, Random.Range(spawnwerte.z + 13f, spawnwerte.z - 13f)); // Wo Object gespawnt?
 
             Instantiate(hindernisse[randomHindernis], spawnPosition + transform.TransformPoint(0, 0, 0), rotationcol); //Objecte spawnen
 
