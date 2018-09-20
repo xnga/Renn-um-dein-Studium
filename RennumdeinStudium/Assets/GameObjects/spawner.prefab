@@ -52,10 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hindernisse:
-  - {fileID: 1950602138877448, guid: 00284cf2de272b74d864cac5ee59c480, type: 2}
-  - {fileID: 1365631002829288, guid: 14c1c36f0364c43bd90ba765f5757447, type: 2}
-  - {fileID: 100002, guid: ac6f60f12976bea47a4b5158d3c0283b, type: 3}
+  - {fileID: 1217911271378942, guid: 1626063d890c64c9f9285ab2d592874b, type: 2}
+  - {fileID: 1500168486650890, guid: b98197bbaa19848e3b65842f347cc7b3, type: 2}
+  - {fileID: 1747209149363940, guid: 7287838c3fa80466dae1875008ecd118, type: 2}
   spawnwerte: {x: 0, y: 0, z: 0}
-  rotationBook: {x: 0, y: 0, z: 0.70710677, w: 0.70710677}
-  rotationTisch: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
-  rotationStone: {x: 0, y: 0, z: 0, w: 1}
