@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class spawemty: MonoBehaviour
 {
+    Quaternion rotationcol = Quaternion.Euler(-90, 0, 0);
 
     public GameObject[] hindernisse;
     public Vector3 spawnwerte;
@@ -48,9 +49,9 @@ public class spawemty: MonoBehaviour
 
             int randomHindernis = Random.Range(0, 2); // Welches Object gespawnt? arrayplaetze, welches Object gepickt wird
 
-            Vector3 spawnPosition = new Vector3(Random.Range(spawnwerte.x + 13f, spawnwerte.x - 13f), spawnwerte.y + 1.0f, Random.Range(spawnwerte.z + 13f, spawnwerte.z - 13f)); // Wo Object gespawnt?
+            Vector3 spawnPosition = new Vector3(Random.Range(spawnwerte.x + 13f, spawnwerte.x - 13f), spawnwerte.y + 3.0f, Random.Range(spawnwerte.z + 13f, spawnwerte.z - 13f)); // Wo Object gespawnt?
 
-            Instantiate(hindernisse[randomHindernis], spawnPosition + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation); //Objecte spawnen
+            Instantiate(hindernisse[randomHindernis], spawnPosition + transform.TransformPoint(0, 0, 0), rotationcol); //Objecte spawnen
 
 
         }
