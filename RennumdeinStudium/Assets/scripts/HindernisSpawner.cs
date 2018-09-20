@@ -10,9 +10,9 @@ public class HindernisSpawner : MonoBehaviour
     public GameObject[] hindernisse;
     public Vector3 spawnwerte;
 
-    public Quaternion rotationBook = Quaternion.Euler(0, 0, 90);
-    public Quaternion rotationTisch = Quaternion.Euler(0, 0, 180);
-    public Quaternion rotationStone = Quaternion.Euler(0, 0, 0);
+    Quaternion rotationBook = Quaternion.Euler(0, 0, 90);
+    Quaternion rotationTisch = Quaternion.Euler(0, 0, 180);
+    Quaternion rotationStone = Quaternion.Euler(0, 0, 0);
 
     private static HindernisSpawner instanceHindernissspawner;
 
