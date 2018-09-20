@@ -10,6 +10,10 @@ public class HindernisSpawner : MonoBehaviour
     public GameObject[] hindernisse;
     public Vector3 spawnwerte;
 
+    public Quaternion rotationBook = Quaternion.Euler(0, 0, 90);
+    public Quaternion rotationTisch = Quaternion.Euler(0, 0, 180);
+    public Quaternion rotationStone = Quaternion.Euler(0, 0, 0);
+
     private static HindernisSpawner instanceHindernissspawner;
 
     public static HindernisSpawner Instance             //andere Skripte können auf Funktionen aus der Klasse zugreifen
@@ -35,7 +39,6 @@ public class HindernisSpawner : MonoBehaviour
 
     public void Update()
     {
-        
     }
 
     public void SpawnHindernisse()
@@ -48,7 +51,12 @@ public class HindernisSpawner : MonoBehaviour
 
             Vector3 spawnPosition = new Vector3(Random.Range(spawnwerte.x + 13f , spawnwerte.x - 13f), spawnwerte.y + 0.5f, Random.Range(spawnwerte.z + 13f, spawnwerte.z - 13f)); // Wo Object gespawnt?
 
-            Instantiate(hindernisse[randomHindernis], spawnPosition + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation); //Objecte spawnen
+            if(randomHindernis == 0)
+                Instantiate(hindernisse[0], spawnPosition + transform.TransformPoint(0, 0, 0), rotationTisch); //Objecte spawnen
+            if (randomHindernis == 1)
+                Instantiate(hindernisse[1], spawnPosition + transform.TransformPoint(0, 0, 0), rotationBook); //Objecte spawnen
+            if (randomHindernis == 2)
+                Instantiate(hindernisse[2], spawnPosition + transform.TransformPoint(0, 0, 0), rotationStone); //Objecte spawnen
 
 
         }

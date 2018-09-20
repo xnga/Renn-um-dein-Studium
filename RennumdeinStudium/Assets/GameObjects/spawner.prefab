@@ -53,8 +53,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hindernisse:
   - {fileID: 1950602138877448, guid: 00284cf2de272b74d864cac5ee59c480, type: 2}
-  - {fileID: 1817305896152956, guid: 14c1c36f0364c43bd90ba765f5757447, type: 2}
+  - {fileID: 1365631002829288, guid: 14c1c36f0364c43bd90ba765f5757447, type: 2}
   - {fileID: 100002, guid: ac6f60f12976bea47a4b5158d3c0283b, type: 3}
   spawnwerte: {x: 0, y: 0, z: 0}
-  hindernisList: []
-  maxHindernisse: 50
+  rotationBook: {x: 0, y: 0, z: 0.70710677, w: 0.70710677}
+  rotationTisch: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
+  rotationStone: {x: 0, y: 0, z: 0, w: 1}
