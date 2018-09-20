@@ -10,9 +10,6 @@ public class HindernisSpawner : MonoBehaviour
     public GameObject[] hindernisse;
     public Vector3 spawnwerte;
 
-    public List<GameObject> hindernisList = new List<GameObject>();
-    public int maxHindernisse = 50;
-
     private static HindernisSpawner instanceHindernissspawner;
 
     public static HindernisSpawner Instance             //andere Skripte können auf Funktionen aus der Klasse zugreifen
@@ -53,15 +50,6 @@ public class HindernisSpawner : MonoBehaviour
 
             Instantiate(hindernisse[randomHindernis], spawnPosition + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation); //Objecte spawnen
 
-            hindernisList.Add(hindernisse[randomHindernis]);
-
-            if (hindernisList.Count > maxHindernisse)                                                                     //wenn Anzahl tiles größer ist als die angegebene maximale Anzahl
-            {
-                GameObject killHindernis = hindernisList[0];
-                hindernisList.RemoveAt(0);                                                                                         //die Verlinkung zum 0 Objekt wird gelöscht->Liste verschiebt sich
-                Destroy(killHindernis);                                                                                         //und Objekt wird gelöscht
-
-            }
 
         }
     }
