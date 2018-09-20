@@ -12,6 +12,8 @@ public class PathGenerator : MonoBehaviour {
     private int pS;                         //previousStep
 
     public GameObject spawner;
+    public GameObject spawner2;
+
 
     //public GameObject plane;
     //public Transform planeParent;
@@ -110,6 +112,9 @@ public class PathGenerator : MonoBehaviour {
         Instantiate(spawner, currentTile.transform.position, Quaternion.identity);                                      // Objekte werden gespawnt
         HindernisSpawner.Instance.SpawnHindernisse();
 
+
+        Instantiate(spawner2, currentTile.transform.position, Quaternion.identity);                                      // Objekte werden gespawnt
+        spawemty.Instance.spawncoll();
 
         if (tiles.Count >= maxTiles)                                                                                    //wenn Anzahl tiles größer ist als die angegebene maximale Anzahl
         {
