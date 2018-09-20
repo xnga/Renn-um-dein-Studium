@@ -24,7 +24,7 @@ public class Gegner : MonoBehaviour
         enemy = GameObject.Find("Enemy");
 
         //Anfangsposition fuer Enemy bestimmen
-        enemy.transform.position = player.transform.position - new Vector3(-20.0f, 0.0f, 0.0f);
+        enemy.transform.position = player.transform.position - new Vector3(-20.0f, -5.0f, -5.0f);
     }
 
     // Update is called once per frame
@@ -88,11 +88,11 @@ public class Gegner : MonoBehaviour
 
             //Bewegung des Enemys
             enemy.transform.forward = Vector3.RotateTowards(enemy.transform.forward, targetDir, rotSpeed, 0.0f);
-            enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, target, step);
+            enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, target + new Vector3(0.0f, 1.5f, -2.0f), step);
         }
 
         // Spielende bei Kollision mit Enemy
-       else if (distance <= 1) 
+       else if (distance <= 3) 
         {
             Destroy(player.gameObject);
         } 
