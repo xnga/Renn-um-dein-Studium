@@ -29,6 +29,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+
     public void Resume()
     {
 
@@ -49,7 +50,8 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadGame() {
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene(0);
+        GamePause = true;
 
     }
 }

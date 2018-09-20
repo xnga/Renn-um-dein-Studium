@@ -49,7 +49,7 @@ public class HindernisSpawner : MonoBehaviour
 
             int randomHindernis = Random.Range(0, 3); // Welches Object gespawnt? arrayplaetze, welches Object gepickt wird
 
-            Vector3 spawnPosition = new Vector3(Random.Range(spawnwerte.x + 13 , spawnwerte.x - 13), spawnwerte.y + 1, Random.Range(spawnwerte.z + 13, spawnwerte.z - 13)); // Wo Object gespawnt?
+            Vector3 spawnPosition = new Vector3(Random.Range(spawnwerte.x + 13f , spawnwerte.x - 13f), spawnwerte.y + 0.5f, Random.Range(spawnwerte.z + 13f, spawnwerte.z - 13f)); // Wo Object gespawnt?
 
             Instantiate(hindernisse[randomHindernis], spawnPosition + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation); //Objecte spawnen
 

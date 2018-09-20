@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1872155188064148}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -52,8 +52,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hindernisse:
-  - {fileID: 1671417934677192, guid: 63156bea081b340e0b66a5308451b71e, type: 2}
-  - {fileID: 1979673397701520, guid: 767c4bdcf728e416584c8ceee280bf7f, type: 2}
-  - {fileID: 1996378974465048, guid: e35342b99006248d5bea03003cb28f8f, type: 2}
+  - {fileID: 1950602138877448, guid: 00284cf2de272b74d864cac5ee59c480, type: 2}
+  - {fileID: 1817305896152956, guid: 14c1c36f0364c43bd90ba765f5757447, type: 2}
+  - {fileID: 100002, guid: ac6f60f12976bea47a4b5158d3c0283b, type: 3}
   spawnwerte: {x: 0, y: 0, z: 0}
-  spawnerpos: {x: 0, y: 0, z: 0}
+  hindernisList: []
+  maxHindernisse: 50
