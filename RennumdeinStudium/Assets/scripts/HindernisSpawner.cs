@@ -11,8 +11,7 @@ public class HindernisSpawner : MonoBehaviour
     public Vector3 spawnwerte;
 
     Quaternion rotationBook = Quaternion.Euler(0, 0, 90);
-    Quaternion rotationTisch = Quaternion.Euler(0, 0, 180);
-    Quaternion rotationStone = Quaternion.Euler(0, 0, 0);
+    Quaternion rotation = Quaternion.Euler(0, 0, 0);
 
     private static HindernisSpawner instanceHindernissspawner;
 
@@ -52,11 +51,11 @@ public class HindernisSpawner : MonoBehaviour
             Vector3 spawnPosition = new Vector3(Random.Range(spawnwerte.x + 13f , spawnwerte.x - 13f), spawnwerte.y + 0.5f, Random.Range(spawnwerte.z + 13f, spawnwerte.z - 13f)); // Wo Object gespawnt?
 
             if(randomHindernis == 0)
-                Instantiate(hindernisse[0], spawnPosition + transform.TransformPoint(0, 0, 0), rotationTisch); //Objecte spawnen
+                Instantiate(hindernisse[0], spawnPosition + transform.TransformPoint(0, 0, 0), rotation); //Objecte spawnen
             if (randomHindernis == 1)
                 Instantiate(hindernisse[1], spawnPosition + transform.TransformPoint(0, 0, 0), rotationBook); //Objecte spawnen
             if (randomHindernis == 2)
-                Instantiate(hindernisse[2], spawnPosition + transform.TransformPoint(0, 0, 0), rotationStone); //Objecte spawnen
+                Instantiate(hindernisse[2], spawnPosition + transform.TransformPoint(0, 0, 0), rotation); //Objecte spawnen
 
 
         }

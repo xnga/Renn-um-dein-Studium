@@ -51,7 +51,6 @@ public class PauseMenu : MonoBehaviour
     public void LoadGame() {
 
         SceneManager.LoadScene(0);
-        GamePause = true;
 
     }
 }

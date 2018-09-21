@@ -1,10 +1,6 @@
-﻿
-
-
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour
 {
@@ -14,6 +10,8 @@ public class GameOver : MonoBehaviour
     public static bool GamePause = false;
 
     public GameObject GameOverMenuUI;
+    public Text highscore;
+    private int score;
 
     public static GameOver Instance             //andere Skripte können auf Funktionen aus der Klasse zugreifen
     {
