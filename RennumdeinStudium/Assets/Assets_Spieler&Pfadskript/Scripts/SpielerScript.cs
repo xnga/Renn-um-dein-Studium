@@ -41,6 +41,38 @@ public class SpielerScript : MonoBehaviour
 
         myBody = GetComponent<Rigidbody>();
 
+<<<<<<< HEAD
+    }
+
+
+    void UpdateGUI()
+    {
+        curHealthLabel.text = currentHealth.ToString(); // hier wird das mit dem Runterzählen durchgeführt
+        EndeScreen.gameObject.SetActive(isDead); //SetActive setzt das Image dann ein
+
+        score.text = points.ToString(); // hier wird das mit dem Runterzählen durchgeführt
+    }
+
+    
+    //Funktion zur Änderung vom Player's CurHealth
+    public void AlterHealth(int anzahl)
+    {
+        currentHealth += anzahl;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxGesundheit); //(Wert den wir einschränken wollen, minimun Wert, maximum Wert)
+        CheckDead();
+        UpdateGUI();
+    }
+    // Update is called once per frame
+    private void CheckDead()
+    {
+        if (isDead)
+            return; // isDead ist ein bool, das false ist; spricht: wenn das false ist, wird es returnt
+        if (currentHealth == 0) // wenn das Minimum erreicht wird, also true ist, dann soll im Player Script das Image erscheinen 
+        {
+            isDead = true;
+            GetComponent<SpielerScript>().enabled = false;
+        }
+=======
     }
 
 
@@ -69,6 +101,7 @@ public class SpielerScript : MonoBehaviour
             isDead = true;
             GetComponent<SpielerScript>().enabled = false;
         }
+>>>>>>> 59b1adc4c925a99ebeca8df2e2227e343c61537c
     }
 
     // Update is called once per frame
@@ -125,11 +158,26 @@ public class SpielerScript : MonoBehaviour
             GetComponent<Rigidbody>().AddForce(0, jumpStrength, 0);                     //Stärke der Kraft hinzufügen
             anim.SetTrigger("Jump");
         }
+<<<<<<< HEAD
+    }
 
-        if (isGrounded == false)
+
+
+    private void OnGUI()
+    {
+     
+        GUI.Label(new Rect(10, 10, 100, 20), "Score:" + points);
+    }
+
+
+}
+=======
+
+        if (Input.GetKeyUp(KeyCode.Space))
         {
             anim.ResetTrigger("Jump");
         }
     }
 
 }
+>>>>>>> 59b1adc4c925a99ebeca8df2e2227e343c61537c
