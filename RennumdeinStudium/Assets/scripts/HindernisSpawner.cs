@@ -8,7 +8,7 @@ public class HindernisSpawner : MonoBehaviour
 {
 
     public GameObject[] hindernisse;
-    public Vector3 spawnwerte;
+    //public Vector3 spawnwerte;
 
     Quaternion rotationBook = Quaternion.Euler(0, 0, 90);
     Quaternion rotation = Quaternion.Euler(0, 0, 0);
@@ -30,8 +30,6 @@ public class HindernisSpawner : MonoBehaviour
 
     public void Start()
     {
-        //spawnwerte = new Vector3(0, 0, 0);
-        SpawnHindernisse();
 
     }
 
@@ -40,8 +38,9 @@ public class HindernisSpawner : MonoBehaviour
     {
     }
 
-    public void SpawnHindernisse()
+    public void SpawnHindernisse(GameObject spawner)
     {
+        Vector3 spawnwerte = new Vector3(spawner.transform.position.x, spawner.transform.position.y, spawner.transform.position.z - 30);
         
         for (int i = 0; i < 5; i++)
         {
@@ -59,5 +58,7 @@ public class HindernisSpawner : MonoBehaviour
 
 
         }
+
+        // hier ein array/list mit den 5 gespawnten hindernissen zurückgeben und in pathgenerator in liste einfügen?? return 0;
     }
 }
