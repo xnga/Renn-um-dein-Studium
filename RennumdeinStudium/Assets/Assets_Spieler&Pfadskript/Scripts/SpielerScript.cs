@@ -26,7 +26,7 @@ public class SpielerScript : MonoBehaviour
     public float minAmount = 5f;
     public float sprintSpeed = 5f;
     Rigidbody myBody;
-
+    
 
     // Use this for initialization
     void Start()
@@ -128,6 +128,13 @@ public class SpielerScript : MonoBehaviour
         if (isGrounded == false){
             anim.ResetTrigger("Jump");
         }
+    }
+
+
+    private void OnGUI()
+    {
+     
+        GUI.Label(new Rect(10, 10, 100, 20), "Score:" + points);
     }
 
 }
