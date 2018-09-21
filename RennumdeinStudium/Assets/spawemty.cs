@@ -8,8 +8,7 @@ public class spawemty: MonoBehaviour
 {
     Quaternion rotationcol = Quaternion.Euler(-90, 0, 0);
 
-    public GameObject[] hindernisse;
-    public Vector3 spawnwerte;
+    public GameObject[] collect;
 
     private static spawemty instanceHindernissspawner;
 
@@ -28,9 +27,6 @@ public class spawemty: MonoBehaviour
 
     public void Start()
     {
-        //spawnwerte = new Vector3(0, 0, 0);
-      
-        spawncoll();
     
 
     }
@@ -41,8 +37,9 @@ public class spawemty: MonoBehaviour
      
     }
 
-    public void spawncoll()
+    public void spawncoll(GameObject spawner)
     {
+        Vector3 spawnwerte = new Vector3(spawner.transform.position.x, spawner.transform.position.y, spawner.transform.position.z - 30);
 
         for (int i = 0; i < 5; i++)
         {
@@ -51,7 +48,7 @@ public class spawemty: MonoBehaviour
 
             Vector3 spawnPosition = new Vector3(Random.Range(spawnwerte.x + 13f, spawnwerte.x - 13f), spawnwerte.y + 2.0f, Random.Range(spawnwerte.z + 13f, spawnwerte.z - 13f)); // Wo Object gespawnt?
 
-            Instantiate(hindernisse[randomHindernis], spawnPosition + transform.TransformPoint(0, 0, 0), rotationcol); //Objecte spawnen
+            Instantiate(collect[randomHindernis], spawnPosition + transform.TransformPoint(0, 0, 0), rotationcol); //Objecte spawnen
 
 
         }

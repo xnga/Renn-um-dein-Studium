@@ -49,7 +49,7 @@ public class SpielerScript : MonoBehaviour
         curHealthLabel.text = currentHealth.ToString(); // hier wird das mit dem Runterzählen durchgeführt
         EndeScreen.gameObject.SetActive(isDead); //SetActive setzt das Image dann ein
 
-        score.text = points.ToString(); // hier wird das mit dem Runterzählen durchgeführt
+        score.text = points.ToString(); 
     }
 
     public void AlterHealth(int amt)
@@ -74,6 +74,7 @@ public class SpielerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UpdateGUI();
 
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
