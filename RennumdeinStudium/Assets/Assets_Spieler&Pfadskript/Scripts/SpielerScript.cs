@@ -52,6 +52,8 @@ public class SpielerScript : MonoBehaviour
         score.text = points.ToString(); // hier wird das mit dem Runterzählen durchgeführt
     }
 
+    
+    //Funktion zur Änderung vom Player's CurHealth
     public void AlterHealth(int amt)
     {
         currentHealth += amt;
@@ -130,13 +132,11 @@ public class SpielerScript : MonoBehaviour
         }
     }
 
-<<<<<<< HEAD
     private void OnGUI()
     {
      
         GUI.Label(new Rect(10, 10, 100, 20), "Score:" + points);
     }
 
-=======
->>>>>>> 677369c046ba8ad39ba7d28efe810c3af2534745
+
 }
