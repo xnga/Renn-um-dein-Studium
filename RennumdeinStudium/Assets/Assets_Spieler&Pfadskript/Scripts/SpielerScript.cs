@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class SpielerScript : MonoBehaviour
 {
     public int points = 0;
+    public Text score;
+
     public int maxGesundheit; // Wie viel Health der Player MAXIMUM hat
     public Text curHealthLabel; // Einfügen von Health TXT
     private int currentHealth; // 100%
@@ -46,6 +48,8 @@ public class SpielerScript : MonoBehaviour
     {
         curHealthLabel.text = currentHealth.ToString(); // hier wird das mit dem Runterzählen durchgeführt
         EndeScreen.gameObject.SetActive(isDead); //SetActive setzt das Image dann ein
+
+        score.text = points.ToString(); // hier wird das mit dem Runterzählen durchgeführt
     }
 
     public void AlterHealth(int amt)
@@ -124,11 +128,6 @@ public class SpielerScript : MonoBehaviour
         if (isGrounded == false){
             anim.ResetTrigger("Jump");
         }
-    }
-
-    private void OnGUI()
-    {
-        GUI.Label(new Rect(10, 10, 100, 20), "Score:" + points);
     }
 
 }
