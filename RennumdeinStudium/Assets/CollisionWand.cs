@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CollisionWand : MonoBehaviour
-{ 
+{
     public int damagePerBerührung = 5; //Health geht in fünfer Schritten runter
     public float damageAnzahl = 1.0f;
 
