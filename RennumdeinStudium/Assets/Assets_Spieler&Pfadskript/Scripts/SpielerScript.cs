@@ -13,7 +13,7 @@ public class SpielerScript : MonoBehaviour
     private int currentHealth; // 100%
     public Image EndeScreen;
     private bool isDead;
-  
+
 
     public float speed = 10;
     public float turnSpeed = 20;
@@ -26,7 +26,7 @@ public class SpielerScript : MonoBehaviour
     public float minAmount = 5f;
     public float sprintSpeed = 5f;
     Rigidbody myBody;
-    
+
 
     // Use this for initialization
     void Start()
@@ -88,11 +88,11 @@ public class SpielerScript : MonoBehaviour
         if (Input.GetAxis("Vertical") < 0)
         {
             transform.position += transform.forward * _speed * Input.GetAxis("Vertical");
-          
+
         }
 
         //Animation abspielen, wenn vertical!=0
-        if( (vertical > 0) && vertical < 0)
+        if ((vertical > 0) && vertical < 0)
         {
             anim.SetTrigger("run");
         }
@@ -124,11 +124,11 @@ public class SpielerScript : MonoBehaviour
             GetComponent<Rigidbody>().AddForce(0, jumpStrength, 0);                     //Stärke der Kraft hinzufügen
             anim.SetTrigger("Jump");
         }
-   
-        if (isGrounded == false){
+
+        if (isGrounded == false)
+        {
             anim.ResetTrigger("Jump");
         }
     }
-
 
 }
