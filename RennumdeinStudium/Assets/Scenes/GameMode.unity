@@ -214,8 +214,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89abb1e251c3e4eec973d49eff6fdb69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 867222217}
-  offsetPosition: {x: 0, y: 1.5, z: -5}
+  player: {fileID: 0}
+  offsetPosition: {x: 0, y: 0, z: 0}
   offsetPositionSpace: 1
   lookAt: 1
 --- !u!20 &282840813
@@ -659,8 +659,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f704d5ac779d467591ee5ccc95aa9dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameOverMenuUI: {fileID: 1536943931}
-  highscore: {fileID: 413998530}
+  GameOverMenuUI: {fileID: 0}
+  highscore: {fileID: 0}
 --- !u!114 &428190053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1030,12 +1030,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7693fbf68ad99404c839469ccd2fb619, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathParent: {fileID: 1504291657}
-  pathPref: {fileID: 1538270790329828, guid: 010047dbce21b4f76a0d55a806c112c3, type: 2}
-  maxTiles: 10
-  spawner: {fileID: 1872155188064148, guid: a8712c0491a5a4109bd2a8b9e1a42ba6, type: 2}
-  spawner2: {fileID: 1622233972688482, guid: d99dd5790fe768a41b99216b49429fbf, type: 2}
-  initialPathLength: 8
+  pathParent: {fileID: 0}
+  pathPref: {fileID: 0}
+  maxTiles: 3
+  spawner: {fileID: 0}
+  spawner2: {fileID: 0}
+  initialPathLength: 5
 --- !u!1 &559115198
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,7 +1066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a1d94ed070c84e1da18b63192d03116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauseMenuUI: {fileID: 480952797}
+  PauseMenuUI: {fileID: 0}
 --- !u!224 &559115200
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1681,10 +1681,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!4 &867222217 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400078, guid: 461413943bab6ef40aa2a33f18380180, type: 3}
-  m_PrefabInternal: {fileID: 1801546404}
 --- !u!114 &867222218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1698,12 +1694,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: 0
   score: {fileID: 0}
-  maxGesundheit: 100
-  curHealthLabel: {fileID: 673020630}
-  EndeScreen: {fileID: 1536943932}
-  speed: 15
-  turnSpeed: 60
-  jumpStrength: 500
+  maxGesundheit: 0
+  curHealthLabel: {fileID: 0}
+  EndeScreen: {fileID: 0}
+  speed: 10
+  turnSpeed: 20
+  jumpStrength: 5
   isGrounded: 1
   minAmount: 5
   sprintSpeed: 5
@@ -1760,7 +1756,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1802,7 +1798,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2132,7 +2128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotSpeed: 0.5
-  speed: 5
+  speed: 0
 --- !u!65 &1142306932
 BoxCollider:
   m_ObjectHideFlags: 0

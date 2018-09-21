@@ -54,9 +54,9 @@ public class SpielerScript : MonoBehaviour
 
     
     //Funktion zur Änderung vom Player's CurHealth
-    public void AlterHealth(int amt)
+    public void AlterHealth(int anzahl)
     {
-        currentHealth += amt;
+        currentHealth += anzahl;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxGesundheit); //(Wert den wir einschränken wollen, minimun Wert, maximum Wert)
         CheckDead();
         UpdateGUI();
@@ -132,18 +132,13 @@ public class SpielerScript : MonoBehaviour
         }
     }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 799f30c11c19e6207975a0eda451a946e09c970b
+
     private void OnGUI()
     {
      
         GUI.Label(new Rect(10, 10, 100, 20), "Score:" + points);
     }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 799f30c11c19e6207975a0eda451a946e09c970b
 }
