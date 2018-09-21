@@ -10,19 +10,8 @@ public class spawemty: MonoBehaviour
 
     public GameObject[] collect;
 
-    private static spawemty instanceHindernissspawner;
-
-    public static spawemty Instance             //andere Skripte können auf Funktionen aus der Klasse zugreifen
-    {
-        get
-        {
-            if (instanceHindernissspawner == null)
-            {
-                instanceHindernissspawner = GameObject.FindObjectOfType<spawemty>();
-            }
-            return instanceHindernissspawner;
-        }
-    }
+    public List<GameObject> gespawnteCols;
+    private int maxCol = 45;
 
 
     public void Start()
@@ -39,6 +28,7 @@ public class spawemty: MonoBehaviour
 
     public void spawncoll(GameObject spawner)
     {
+        gespawnteCols = new List<GameObject>();
         Vector3 spawnwerte = new Vector3(spawner.transform.position.x, spawner.transform.position.y, spawner.transform.position.z);
 
         for (int i = 0; i < 5; i++)
@@ -50,7 +40,7 @@ public class spawemty: MonoBehaviour
 
             Instantiate(collect[randomHindernis], spawnPosition + transform.TransformPoint(0, 0, 0), rotationcol); //Objecte spawnen
 
-
+            gespawnteCols.Add(collect[randomHindernis]); //speichert Hindernisse in Liste
         }
     }
 }
