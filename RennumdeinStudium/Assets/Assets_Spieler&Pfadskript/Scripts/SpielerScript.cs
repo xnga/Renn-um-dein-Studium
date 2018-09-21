@@ -125,7 +125,7 @@ public class SpielerScript : MonoBehaviour
             anim.SetTrigger("Jump");
         }
 
-        if (isGrounded == false)
+        if (Input.GetKeyUp(KeyCode.Space))
         {
             anim.ResetTrigger("Jump");
         }
