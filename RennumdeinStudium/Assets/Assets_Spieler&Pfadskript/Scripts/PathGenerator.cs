@@ -28,16 +28,18 @@ public class PathGenerator : MonoBehaviour
 
     //Zugriff auf HindernisSpawner.cs
     private HindernisSpawner spawnskript;
-    public HindernisSpawner spawnFunc;
-    public spawemty spawnColFunc;
 
     [SerializeField]
     private int initialPathLength = 5;        //soviele werden von Anfang an generiert
 
-
-	private void Start()
+    private void Awake()
     {
-        
+        spawnskript = GetComponent<HindernisSpawner>();
+    }
+
+    private void Start()
+    {
+
 
         tiles = new List<GameObject>();                     // tiles = Liste ->initialization
         lastPathTile = Instantiate(pathPref, pathParent);   // lastPathTile = Kopie von pathPref an Stelle von pathParent
@@ -78,8 +80,8 @@ public class PathGenerator : MonoBehaviour
             currentTile = Instantiate(pathPref, lastPathTile.transform.position, lastPathTile.transform.rotation);  //kopiert pathPref, an Pos lastPathTile, rotiert um lastPathTile
             //currentPlane = Instantiate(plane, lastPlane.transform.position, lastPlane.transform.rotation);
 
-            currentSpawner = Instantiate(Spawner, lastSpawner.transform.position, lastSpawner.transform.rotation); 
-            currentColSpawner = Instantiate(ColSpawner, lastColSpawner.transform.position, lastColSpawner.transform.rotation); 
+            currentSpawner = Instantiate(Spawner, lastSpawner.transform.position, lastSpawner.transform.rotation);
+            currentColSpawner = Instantiate(ColSpawner, lastColSpawner.transform.position, lastColSpawner.transform.rotation);
 
             currentTile.transform.parent = pathParent;                                                              //Zuweisung der Position von pathParent
             currentSpawner.transform.parent = spawnParent;
@@ -99,8 +101,8 @@ public class PathGenerator : MonoBehaviour
             currentTile = Instantiate(pathPref, lastPathTile.transform.position, lastPathTile.transform.rotation);
             //currentPlane = Instantiate(plane, lastPlane.transform.position, lastPlane.transform.rotation);
 
-            currentSpawner = Instantiate(Spawner, lastSpawner.transform.position, lastSpawner.transform.rotation); 
-            currentColSpawner = Instantiate(ColSpawner, lastColSpawner.transform.position, lastColSpawner.transform.rotation); 
+            currentSpawner = Instantiate(Spawner, lastSpawner.transform.position, lastSpawner.transform.rotation);
+            currentColSpawner = Instantiate(ColSpawner, lastColSpawner.transform.position, lastColSpawner.transform.rotation);
 
 
             currentTile.transform.parent = pathParent;
@@ -122,8 +124,8 @@ public class PathGenerator : MonoBehaviour
             currentTile = Instantiate(pathPref, lastPathTile.transform.position, lastPathTile.transform.rotation);
             //currentPlane = Instantiate(plane, lastPlane.transform.position, lastPlane.transform.rotation);
 
-            currentSpawner = Instantiate(Spawner, lastSpawner.transform.position, lastSpawner.transform.rotation); 
-            currentColSpawner = Instantiate(ColSpawner, lastColSpawner.transform.position, lastColSpawner.transform.rotation); 
+            currentSpawner = Instantiate(Spawner, lastSpawner.transform.position, lastSpawner.transform.rotation);
+            currentColSpawner = Instantiate(ColSpawner, lastColSpawner.transform.position, lastColSpawner.transform.rotation);
 
 
             currentTile.transform.parent = pathParent;
@@ -144,7 +146,7 @@ public class PathGenerator : MonoBehaviour
         currentTile.transform.Translate(0, 0, lastPathTile.transform.localScale.z);                                     //verschiebt currentTile um die Größe des lastPathTiles z
         transform.position = currentTile.transform.position;
 
-        currentSpawner.transform.Translate(0, 0, lastPathTile.transform.localScale.z);                                     
+        currentSpawner.transform.Translate(0, 0, lastPathTile.transform.localScale.z);
         transform.position = currentSpawner.transform.position;
 
         currentColSpawner.transform.Translate(0, 0, lastPathTile.transform.localScale.z);
@@ -154,16 +156,17 @@ public class PathGenerator : MonoBehaviour
         //transform.position = currentPlane.transform.position;
 
         lastPathTile = currentTile;                                                                                     //lastPathTile ist nun currentTile
-        lastSpawner = currentSpawner; 
-        lastColSpawner = currentColSpawner; 
+        lastSpawner = currentSpawner;
+        lastColSpawner = currentColSpawner;
         //lastPlane = currentPlane;
 
         tiles.Add(currentTile);                                                                                         //und currentTile wird der Liste hinzugefügt
         //tiles.Add(currentPlane);
 
         //SPAWNING Hindernisse & Collects
-        spawnFunc.SpawnHindernisse(currentSpawner);
-        spawnColFunc.spawncoll(currentColSpawner);
+        //spawnskript.SpawnHindernisse(currentSpawner);
+        HindernisSpawner.Instance.SpawnHindernisse(currentSpawner);
+        spawemty.Instance.spawncoll(currentColSpawner);
 
         //Instantiate(spawner2, currentTile.transform.position, Quaternion.identity);                                      // Objekte werden gespawnt
         //spawemty.Instance.spawncoll();
