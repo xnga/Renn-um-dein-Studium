@@ -13,7 +13,7 @@ public class SpielerScript : MonoBehaviour
     private int currentHealth; // 100%
     public Image EndeScreen;
     private bool isDead;
-  
+
 
     public float speed = 10;
     public float turnSpeed = 20;
@@ -26,7 +26,7 @@ public class SpielerScript : MonoBehaviour
     public float minAmount = 5f;
     public float sprintSpeed = 5f;
     Rigidbody myBody;
-    
+
 
     // Use this for initialization
     void Start()
@@ -41,6 +41,7 @@ public class SpielerScript : MonoBehaviour
 
         myBody = GetComponent<Rigidbody>();
 
+<<<<<<< HEAD
     }
 
 
@@ -71,6 +72,36 @@ public class SpielerScript : MonoBehaviour
             isDead = true;
             GetComponent<SpielerScript>().enabled = false;
         }
+=======
+    }
+
+
+    void UpdateGUI()
+    {
+        curHealthLabel.text = currentHealth.ToString(); // hier wird das mit dem Runterzählen durchgeführt
+        EndeScreen.gameObject.SetActive(isDead); //SetActive setzt das Image dann ein
+
+        score.text = points.ToString(); // hier wird das mit dem Runterzählen durchgeführt
+    }
+
+    public void AlterHealth(int amt)
+    {
+        currentHealth += amt;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxGesundheit); //(Wert den wir einschränken wollen, minimun Wert, maximum Wert)
+        CheckDead();
+        UpdateGUI();
+    }
+    // Update is called once per frame
+    private void CheckDead()
+    {
+        if (isDead)
+            return; // isDead ist ein bool, das false ist; spricht: wenn das false ist, wird es returnt
+        if (currentHealth == 0) // wenn das Minimum erreicht wird, also true ist, dann soll im Player Script das Image erscheinen 
+        {
+            isDead = true;
+            GetComponent<SpielerScript>().enabled = false;
+        }
+>>>>>>> 59b1adc4c925a99ebeca8df2e2227e343c61537c
     }
 
     // Update is called once per frame
@@ -90,11 +121,11 @@ public class SpielerScript : MonoBehaviour
         if (Input.GetAxis("Vertical") < 0)
         {
             transform.position += transform.forward * _speed * Input.GetAxis("Vertical");
-          
+
         }
 
         //Animation abspielen, wenn vertical!=0
-        if( (vertical > 0) && vertical < 0)
+        if ((vertical > 0) && vertical < 0)
         {
             anim.SetTrigger("run");
         }
@@ -126,10 +157,7 @@ public class SpielerScript : MonoBehaviour
             GetComponent<Rigidbody>().AddForce(0, jumpStrength, 0);                     //Stärke der Kraft hinzufügen
             anim.SetTrigger("Jump");
         }
-   
-        if (isGrounded == false){
-            anim.ResetTrigger("Jump");
-        }
+<<<<<<< HEAD
     }
 
 
@@ -142,3 +170,13 @@ public class SpielerScript : MonoBehaviour
 
 
 }
+=======
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            anim.ResetTrigger("Jump");
+        }
+    }
+
+}
+>>>>>>> 59b1adc4c925a99ebeca8df2e2227e343c61537c
