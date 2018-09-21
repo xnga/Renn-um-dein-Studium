@@ -130,13 +130,11 @@ public class SpielerScript : MonoBehaviour
         }
     }
 
-<<<<<<< HEAD
+
     private void OnGUI()
     {
      
         GUI.Label(new Rect(10, 10, 100, 20), "Score:" + points);
     }
 
-=======
->>>>>>> 677369c046ba8ad39ba7d28efe810c3af2534745
 }
