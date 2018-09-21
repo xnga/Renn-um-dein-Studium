@@ -39,7 +39,7 @@ public class spawemty: MonoBehaviour
 
     public void spawncoll(GameObject spawner)
     {
-        Vector3 spawnwerte = new Vector3(spawner.transform.position.x, spawner.transform.position.y, spawner.transform.position.z - 30);
+        Vector3 spawnwerte = new Vector3(spawner.transform.position.x, spawner.transform.position.y, spawner.transform.position.z);
 
         for (int i = 0; i < 5; i++)
         {

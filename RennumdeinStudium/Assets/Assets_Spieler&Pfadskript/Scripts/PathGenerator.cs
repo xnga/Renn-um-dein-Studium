@@ -28,14 +28,12 @@ public class PathGenerator : MonoBehaviour
 
     //Zugriff auf HindernisSpawner.cs
     private HindernisSpawner spawnskript;
+    public HindernisSpawner spawnFunc;
+    public spawemty spawnColFunc;
 
     [SerializeField]
     private int initialPathLength = 5;        //soviele werden von Anfang an generiert
 
-	private void Awake()
-	{
-        spawnskript = GetComponent<HindernisSpawner>();
-	}
 
 	private void Start()
     {
@@ -164,9 +162,8 @@ public class PathGenerator : MonoBehaviour
         //tiles.Add(currentPlane);
 
         //SPAWNING Hindernisse & Collects
-        //spawnskript.SpawnHindernisse(currentSpawner);
-        HindernisSpawner.Instance.SpawnHindernisse(currentSpawner);
-        spawemty.Instance.spawncoll(currentColSpawner);
+        spawnFunc.SpawnHindernisse(currentSpawner);
+        spawnColFunc.spawncoll(currentColSpawner);
 
         //Instantiate(spawner2, currentTile.transform.position, Quaternion.identity);                                      // Objekte werden gespawnt
         //spawemty.Instance.spawncoll();
