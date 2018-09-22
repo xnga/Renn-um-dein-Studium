@@ -10,7 +10,7 @@ public class SpielerScript : MonoBehaviour
 
     public int maxGesundheit; // Wie viel Health der Player MAXIMUM hat
     public Text curHealthLabel; // Einfügen von Health TXT
-    private int currentHealth; // 100%
+    public float currentHealth; // 100%
     public Image EndeScreen;
     private bool isDead;
 
@@ -49,7 +49,7 @@ public class SpielerScript : MonoBehaviour
     }
 
 
-    void UpdateGUI()
+    public void UpdateGUI()
     {
         curHealthLabel.text = currentHealth.ToString(); // hier wird das mit dem Runterzählen durchgeführt
         EndeScreen.gameObject.SetActive(isDead); //SetActive setzt das Image dann ein
@@ -57,7 +57,7 @@ public class SpielerScript : MonoBehaviour
         score.text = points.ToString(); 
     }
 
-    public void AlterHealth(int amt)
+    public void AlterHealth(float amt)
     {
         currentHealth += amt;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxGesundheit); //(Wert den wir einschränken wollen, minimun Wert, maximum Wert)
@@ -69,7 +69,7 @@ public class SpielerScript : MonoBehaviour
     {
         if (isDead)
             return; // isDead ist ein bool, das false ist; spricht: wenn das false ist, wird es returnt
-        if (currentHealth == 0) // wenn das Minimum erreicht wird, also true ist, dann soll im Player Script das Image erscheinen 
+        if (currentHealth == 0.0f) // wenn das Minimum erreicht wird, also true ist, dann soll im Player Script das Image erscheinen 
         {
             isDead = true;
             GetComponent<SpielerScript>().enabled = false;
