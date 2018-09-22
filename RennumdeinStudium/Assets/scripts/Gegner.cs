@@ -45,27 +45,28 @@ public class Gegner : MonoBehaviour
 
         distance = Vector3.Distance(enemy.transform.position, target);
 
-        // unterschiedliche Szenarien bei unterschiedlichen Entfernungen
+        // Hier wird die Richtung ermittelt (macht das Transform richtung obsolet).
+        Vector3 targetDir = (target - enemy.transform.position).normalized;
+        targetDir.y = 0f;
 
-            // Hier wird die Richtung ermittelt (macht das Transform richtung obsolet).
-            Vector3 targetDir = (target - enemy.transform.position).normalized;
-            targetDir.y = 0f;
+        //für eine Distanz kleiner als 3
+        if (distance < 5.0f)
+        {
+            //Grundgeschwindigkeit fuer Entfernung
+            speedEnemy = 7.0f;
+            spielerScript.AlterHealth(Time.deltaTime - 0.15f);
+            spielerScript.UpdateGUI();
+        }
 
-            //für eine Distanz kleiner als 3
-            if (distance < 5.0f)
-            {
-                //Grundgeschwindigkeit fuer Entfernung
-                speedEnemy = 7.0f;
-
-            }
-
-            // für Distanz zwischen 5 und 3
-            else 
-            {
+        else if (distance < 17.0f){
             speedEnemy = 10.0f;
+            spielerScript.AlterHealth(Time.deltaTime - 0.05f);
+            spielerScript.UpdateGUI();
+        }
 
-
-            spielerScript.AlterHealth(Time.deltaTime-0.05f);
+        else
+        {
+            speedEnemy = 11.5f;
             spielerScript.UpdateGUI();
 
             }
