@@ -22,9 +22,6 @@ public class PathGenerator : MonoBehaviour
     private GameObject lastColSpawner;          // letzter Spawner
     public Transform spawnColParent;
 
-    //public GameObject plane;
-    //public Transform planeParent;
-    //private GameObject lastPlane;
 
     //Zugriff auf HindernisSpawner.cs
     public HindernisSpawner spawnFunc;
@@ -50,8 +47,7 @@ public class PathGenerator : MonoBehaviour
         hindernisList.Add(lastSpawner);
         lastColSpawner = Instantiate(ColSpawner, spawnColParent);
         colList.Add(lastColSpawner);
-        //lastPlane = Instantiate(plane, planeParent);
-        //tiles.Add(lastPlane);
+       
 
         for (int i = 0; i < initialPathLength; i++)
         {
@@ -61,14 +57,6 @@ public class PathGenerator : MonoBehaviour
 
 
 
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.Keypad4)) GeneratePathTile(0);
-    //    if (Input.GetKeyDown(KeyCode.Keypad8)) GeneratePathTile(1);
-    //    if (Input.GetKeyDown(KeyCode.Keypad6)) GeneratePathTile(2);
-    //}
-
-
 
 
     public void GeneratePathTile(int direction)
@@ -76,7 +64,6 @@ public class PathGenerator : MonoBehaviour
         GameObject currentTile = null;
         GameObject currentSpawner = null;
         GameObject currentColSpawner = null;
-        //GameObject currentPlane = null;
 
         if (direction == 0 && pS != 0)                  //if Anweisung -> wo tile angehängt wird
         {
@@ -89,10 +76,10 @@ public class PathGenerator : MonoBehaviour
             currentTile.transform.parent = pathParent;                                                              //Zuweisung der Position von pathParent
             currentSpawner.transform.parent = spawnParent;
             currentColSpawner.transform.parent = spawnColParent;
-            //currentPlane.transform.parent = planeParent;
+        
 
             currentTile.transform.Rotate(0, -90, 0);                                                                //links
-            //currentPlane.transform.Rotate(0, -90, 0);
+       
             currentSpawner.transform.Rotate(0, -90, 0);
             currentColSpawner.transform.Rotate(0, -90, 0);
 
@@ -102,7 +89,7 @@ public class PathGenerator : MonoBehaviour
         else if (direction == 1)
         {
             currentTile = Instantiate(pathPref, lastPathTile.transform.position, lastPathTile.transform.rotation);
-            //currentPlane = Instantiate(plane, lastPlane.transform.position, lastPlane.transform.rotation);
+ 
 
             currentSpawner = Instantiate(Spawner, lastSpawner.transform.position, lastSpawner.transform.rotation); 
             currentColSpawner = Instantiate(ColSpawner, lastColSpawner.transform.position, lastColSpawner.transform.rotation); 
@@ -111,10 +98,10 @@ public class PathGenerator : MonoBehaviour
             currentTile.transform.parent = pathParent;
             currentSpawner.transform.parent = spawnParent;
             currentColSpawner.transform.parent = spawnColParent;
-            //currentPlane.transform.parent = planeParent;
+        
 
             currentTile.transform.Rotate(0, 0, 0);                                                                  //vorne
-            //currentPlane.transform.Rotate(0, 0, 0);
+      
             currentSpawner.transform.Rotate(0, 0, 0);
             currentColSpawner.transform.Rotate(0, 0, 0);
 
@@ -125,8 +112,7 @@ public class PathGenerator : MonoBehaviour
         else if (direction == 2 && pS != 2)
         {
             currentTile = Instantiate(pathPref, lastPathTile.transform.position, lastPathTile.transform.rotation);
-            //currentPlane = Instantiate(plane, lastPlane.transform.position, lastPlane.transform.rotation);
-
+   
             currentSpawner = Instantiate(Spawner, lastSpawner.transform.position, lastSpawner.transform.rotation); 
             currentColSpawner = Instantiate(ColSpawner, lastColSpawner.transform.position, lastColSpawner.transform.rotation); 
 
@@ -134,10 +120,10 @@ public class PathGenerator : MonoBehaviour
             currentTile.transform.parent = pathParent;
             currentSpawner.transform.parent = spawnParent;
             currentColSpawner.transform.parent = spawnColParent;
-            //currentPlane.transform.parent = planeParent;
+     
 
             currentTile.transform.Rotate(0, 90, 0);                                                                 //rechts
-            //currentPlane.transform.Rotate(0, 90, 0);
+  
             currentSpawner.transform.Rotate(0, 90, 0);
             currentColSpawner.transform.Rotate(0, 90, 0);
 
@@ -155,16 +141,15 @@ public class PathGenerator : MonoBehaviour
         currentColSpawner.transform.Translate(0, 0, lastPathTile.transform.localScale.z);
         transform.position = currentColSpawner.transform.position;
 
-        //currentPlane.transform.Translate(0, 0, lastPlane.transform.localScale.z);
-        //transform.position = currentPlane.transform.position;
+  
 
         lastPathTile = currentTile;                                                                                     //lastPathTile ist nun currentTile
         lastSpawner = currentSpawner; 
         lastColSpawner = currentColSpawner; 
-        //lastPlane = currentPlane;
+    ;
 
         tiles.Add(currentTile);                                                                                         //und currentTile wird der Liste hinzugefügt
-        //tiles.Add(currentPlane);
+    
 
         //SPAWNING Hindernisse & Collects
         spawnFunc.SpawnHindernisse(currentSpawner);
