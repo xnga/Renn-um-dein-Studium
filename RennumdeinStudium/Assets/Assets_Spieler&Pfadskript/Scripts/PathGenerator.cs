@@ -68,7 +68,6 @@ public class PathGenerator : MonoBehaviour
         if (direction == 0 && pS != 0)                  //if Anweisung -> wo tile angehängt wird
         {
             currentTile = Instantiate(pathPref, lastPathTile.transform.position, lastPathTile.transform.rotation);  //kopiert pathPref, an Pos lastPathTile, rotiert um lastPathTile
-            //currentPlane = Instantiate(plane, lastPlane.transform.position, lastPlane.transform.rotation);
 
             currentSpawner = Instantiate(Spawner, lastSpawner.transform.position, lastSpawner.transform.rotation); 
             currentColSpawner = Instantiate(ColSpawner, lastColSpawner.transform.position, lastColSpawner.transform.rotation); 
