@@ -148,15 +148,8 @@ public class SpielerScript : MonoBehaviour
             anim.Play("Jump");
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         else
-=======
-        if (isGrounded == false)
->>>>>>> e82d5ec03f89dca42adc30ca9278011c467db40f
-=======
-        if (isGrounded == false)
->>>>>>> e82d5ec03f89dca42adc30ca9278011c467db40f
+
         {
             anim.SetBool("Jump", jump);
             jump = false;
