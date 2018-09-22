@@ -1761,8 +1761,9 @@ MonoBehaviour:
   EndeScreen: {fileID: 1536943932}
   speed: 15
   turnSpeed: 60
-  jumpStrength: 500
+  jumpStrength: 300
   isGrounded: 1
+  anim: {fileID: 0}
   minAmount: 5
   sprintSpeed: 5
 --- !u!54 &867222219
