@@ -22,7 +22,9 @@ public class SpielerScript : MonoBehaviour
     float vertical;
     public bool isGrounded = true;
     private float distToGround = 0f;
-    Animator anim;
+    private bool run;
+    private bool jump;
+    public Animator anim;
     public float minAmount = 5f;
     public float sprintSpeed = 5f;
     Rigidbody myBody;
@@ -41,6 +43,9 @@ public class SpielerScript : MonoBehaviour
 
         myBody = GetComponent<Rigidbody>();
 
+        run = false;
+        jump = false;
+
     }
 
 
@@ -49,7 +54,7 @@ public class SpielerScript : MonoBehaviour
         curHealthLabel.text = currentHealth.ToString(); // hier wird das mit dem Runterzählen durchgeführt
         EndeScreen.gameObject.SetActive(isDead); //SetActive setzt das Image dann ein
 
-        score.text = points.ToString(); // hier wird das mit dem Runterzählen durchgeführt
+        score.text = points.ToString(); 
     }
 
     public void AlterHealth(int amt)
@@ -74,6 +79,7 @@ public class SpielerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UpdateGUI();
 
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
@@ -84,22 +90,37 @@ public class SpielerScript : MonoBehaviour
         if (Input.GetAxis("Vertical") > 0)
         {
             transform.position += transform.forward * _speed * Input.GetAxis("Vertical");
+            anim.SetBool("run", run);
+            run = true;
+            anim.Play("run");
+        }
+        else {
+            run = false;
         }
         if (Input.GetAxis("Vertical") < 0)
         {
             transform.position += transform.forward * _speed * Input.GetAxis("Vertical");
-
+            anim.SetBool("run", run);
+            run = true;
+            anim.Play("run");
         }
-
-        //Animation abspielen, wenn vertical!=0
-        if ((vertical > 0) && vertical < 0)
-        {
-            anim.SetTrigger("run");
-        }
+       
         else
         {
-            anim.ResetTrigger("run");
+            run = false;
         }
+       
+
+
+        //Animation abspielen, wenn vertical!=0
+        //if ((vertical > 0) && vertical < 0)
+        //{
+        // anim.SetFloat("run", vertical);
+        // }
+        // else
+        //{
+        //   anim.ResetTrigger("run",);
+        //}
 
         if (Input.GetKey(KeyCode.D))
         {
@@ -122,12 +143,23 @@ public class SpielerScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)                              //wenn die Leertaste gerdückt ist & Spieler auf dem Boden steht
         {
             GetComponent<Rigidbody>().AddForce(0, jumpStrength, 0);                     //Stärke der Kraft hinzufügen
-            anim.SetTrigger("Jump");
+            anim.SetBool("Jump", jump);
+            jump = true;
+            anim.Play("Jump");
         }
 
-        if (Input.GetKeyUp(KeyCode.Space))
+<<<<<<< HEAD
+<<<<<<< HEAD
+        else
+=======
+        if (isGrounded == false)
+>>>>>>> e82d5ec03f89dca42adc30ca9278011c467db40f
+=======
+        if (isGrounded == false)
+>>>>>>> e82d5ec03f89dca42adc30ca9278011c467db40f
         {
-            anim.ResetTrigger("Jump");
+            anim.SetBool("Jump", jump);
+            jump = false;
         }
     }
 
