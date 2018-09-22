@@ -16,9 +16,6 @@ public class Gegner : MonoBehaviour
     // anderers Skript "SpielerScript" bekanntmachen
     SpielerScript spielerScript;
 
-    //Variable Kaffee holen!!!
-    //Variable Lebensanzeige holen!!!
-
     private void Awake()
     {
         spielerScript = (SpielerScript)GameObject.FindGameObjectWithTag("Player").GetComponent("SpielerScript");
@@ -33,7 +30,7 @@ public class Gegner : MonoBehaviour
         enemy = GameObject.Find("Enemy");
 
         //Anfangsposition fuer Enemy bestimmen
-        enemy.transform.position = player.transform.position - new Vector3(-20.0f, -5.0f, -5.0f);
+        enemy.transform.position = player.transform.position - new Vector3( 0.0f, -5.0f, 20.0f);
     }
 
     // Update is called once per frame
@@ -45,40 +42,38 @@ public class Gegner : MonoBehaviour
 
         distance = Vector3.Distance(enemy.transform.position, target);
 
-        // Hier wird die Richtung ermittelt (macht das Transform richtung obsolet).
+        // Hier wird die Richtung ermittelt.
         Vector3 targetDir = (target - enemy.transform.position).normalized;
         targetDir.y = 0f;
 
-        //für eine Distanz kleiner als 3
-        if (distance < 5.0f)
+        //für eine Distanz kleiner als 5
+        if (distance < 3.0f)
         {
             //Grundgeschwindigkeit fuer Entfernung
-            speedEnemy = 7.0f;
+            speedEnemy = 6.0f;
             spielerScript.AlterHealth(Time.deltaTime - 0.15f);
             spielerScript.UpdateGUI();
         }
 
-        else if (distance < 17.0f){
+        else if (distance < 15.0f){
             speedEnemy = 10.0f;
-            spielerScript.AlterHealth(Time.deltaTime - 0.05f);
+            spielerScript.AlterHealth(Time.deltaTime - 0.025f);
             spielerScript.UpdateGUI();
         }
 
         else
         {
-            speedEnemy = 11.5f;
+            speedEnemy = 15.5f;
             spielerScript.UpdateGUI();
-
-            }
-
+        }
 
 
-            //Geschwindigkeit für Bewegung ermitteln
-            float step = speedEnemy * Time.deltaTime;
+        //Geschwindigkeit für Bewegung ermitteln
+        float step = speedEnemy * Time.deltaTime;
 
-            //Bewegung des Enemys
-            enemy.transform.forward = Vector3.RotateTowards(enemy.transform.forward, targetDir, rotSpeed, 0.0f);
-            enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, target + new Vector3(0.0f, 1.5f, -2.0f), step);
+        //Bewegung des Enemys
+        enemy.transform.forward = Vector3.RotateTowards(enemy.transform.forward, targetDir, rotSpeed, 0.0f);
+        enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, target + new Vector3(0.0f, 1.5f, -2.0f), step);
         
 
     }
