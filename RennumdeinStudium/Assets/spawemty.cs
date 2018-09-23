@@ -11,15 +11,6 @@ public class spawemty: MonoBehaviour
     public GameObject[] collect;
 
     public List<GameObject> gespawnteCols;
-    private int maxCol = 45;
-
-
-    public void Start()
-    {
-    
-
-    }
-
 
     public void Update()
     {

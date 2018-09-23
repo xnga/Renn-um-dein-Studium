@@ -10,16 +10,9 @@ public class HindernisSpawner : MonoBehaviour
     public GameObject[] hindernisse ;
 
     public List<GameObject> gespawnteHind;
-    private int maxHinds = 45;
 
     Quaternion rotationBook = Quaternion.Euler(0, 0, 90);
     Quaternion rotation = Quaternion.Euler(0, 0, 0);
-
-
-    public void Start()
-    {
-        
-    }
 
 
     public void Update()

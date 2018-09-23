@@ -26,8 +26,9 @@ public class PathGenerator : MonoBehaviour
     //Zugriff auf HindernisSpawner.cs
     public HindernisSpawner spawnFunc;
     public spawemty spawnColFunc;
-    public List<GameObject> hindernisList;
-    public List<GameObject> colList;
+    //private List<List<GameObject>> hindernisList = new List<List<GameObject>>();
+    public List<GameObject> colSpawnList;
+    public List<GameObject> spawnerHindList;
     private int maxHinds = 45;
 
 
@@ -38,15 +39,15 @@ public class PathGenerator : MonoBehaviour
 	private void Start()
     {
         
-        hindernisList = new List<GameObject>(); 
+        //hindernisList = new List<List<GameObject>>(); 
         tiles = new List<GameObject>();                     // tiles = Liste ->initialization
         lastPathTile = Instantiate(pathPref, pathParent);   // lastPathTile = Kopie von pathPref an Stelle von pathParent
         tiles.Add(lastPathTile);                            //lastPathTile wird der Liste hinzugefügt und ausgegeben
 
         lastSpawner = Instantiate(Spawner, spawnParent);
-        hindernisList.Add(lastSpawner);
+        spawnerHindList.Add(lastSpawner);
         lastColSpawner = Instantiate(ColSpawner, spawnColParent);
-        colList.Add(lastColSpawner);
+        colSpawnList.Add(lastColSpawner);
        
 
         for (int i = 0; i < initialPathLength; i++)
@@ -139,13 +140,11 @@ public class PathGenerator : MonoBehaviour
 
         currentColSpawner.transform.Translate(0, 0, lastPathTile.transform.localScale.z);
         transform.position = currentColSpawner.transform.position;
-
   
 
         lastPathTile = currentTile;                                                                                     //lastPathTile ist nun currentTile
         lastSpawner = currentSpawner; 
         lastColSpawner = currentColSpawner; 
-    ;
 
         tiles.Add(currentTile);                                                                                         //und currentTile wird der Liste hinzugefügt
     
@@ -154,44 +153,28 @@ public class PathGenerator : MonoBehaviour
         spawnFunc.SpawnHindernisse(currentSpawner);
         spawnColFunc.spawncoll(currentColSpawner);
 
-        hindernisList.Add(currentSpawner);
-        colList.Add(currentColSpawner);
+        spawnerHindList.Add(currentSpawner);
+        colSpawnList.Add(currentColSpawner);
 
-        if (hindernisList.Count >= maxTiles)                                                                                    //wenn Anzahl tiles größer ist als die angegebene maximale Anzahl
-        {
-            GameObject killHind = hindernisList[0];
-            hindernisList.RemoveAt(0);                                                                                         //die Verlinkung zum 0 Objekt wird gelöscht->Liste verschiebt sich
-            Destroy(killHind);  //und Objekt wird gelöscht
-
-            GameObject killCol = colList[0];
-            colList.RemoveAt(0);                                                                                         //die Verlinkung zum 0 Objekt wird gelöscht->Liste verschiebt sich
-            Destroy(killCol); 
-
-        }
-
-        /*if (hindernisList.Count >= maxHinds)
-        {
-             for (int i = 0; i < 5; i++)
-            {
-                GameObject killHindernisse = hindernisList[i];
-                hindernisList.RemoveAt(i);
-                Destroy(killHindernisse);
-            }
-
-        } else {
-
-            hindernisList.Add(spawnFunc.gespawnteHind[0]);
-            hindernisList.Add(spawnFunc.gespawnteHind[1]);
-            hindernisList.Add(spawnFunc.gespawnteHind[2]);
-            hindernisList.Add(spawnFunc.gespawnteHind[3]);
-            hindernisList.Add(spawnFunc.gespawnteHind[4]);
-        }*/
+        //hindernisList.Add(spawnFunc.gespawnteHind);
 
         if (tiles.Count >= maxTiles)                                                                                    //wenn Anzahl tiles größer ist als die angegebene maximale Anzahl
         {
             GameObject killTile = tiles[0];
             tiles.RemoveAt(0);                                                                                         //die Verlinkung zum 0 Objekt wird gelöscht->Liste verschiebt sich
             Destroy(killTile);                                                                                         //und Objekt wird gelöscht
+
+            GameObject killspawn = spawnerHindList[0];
+            spawnerHindList.RemoveAt(0);                                                                                         
+            Destroy(killspawn);
+
+            GameObject killColspawn = colSpawnList[0];
+            colSpawnList.RemoveAt(0);
+            Destroy(killColspawn);
+           
+            //GameObject killHindernisse = hindernisList[0];
+            //hindernisList.RemoveAt(0);
+            //Destroy(killHindernisse);
 
         }
 
