@@ -51,13 +51,13 @@ public class Gegner : MonoBehaviour
         {
             //Grundgeschwindigkeit fuer Entfernung
             speedEnemy = 6.0f;
-            spielerScript.AlterHealth(Time.deltaTime - 0.15f);
+            spielerScript.AlterHealth(Time.deltaTime - 0.25f);
             spielerScript.UpdateGUI();
         }
 
         else if (distance < 15.0f){
             speedEnemy = 10.0f;
-            spielerScript.AlterHealth(Time.deltaTime - 0.025f);
+            spielerScript.AlterHealth(Time.deltaTime - 0.05f);
             spielerScript.UpdateGUI();
         }
 
